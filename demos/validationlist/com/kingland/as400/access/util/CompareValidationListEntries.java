@@ -5,7 +5,7 @@ import com.kingland.as400.access.*;
 import java.util.*;
 
 /**
- * Copyright © 2001, International Business Machines Corporation and others. All Rights Reserved.
+ * Copyright Å  2001, International Business Machines Corporation and others. All Rights Reserved.
  **
  * <p>
  * Example program to compare the contents of two AS/400 validation lists.
@@ -19,7 +19,7 @@ import java.util.*;
  */
 public class CompareValidationListEntries extends ValidationListUtil {
 	static final String COPYRIGHT =
-		"Copyright © 2001, International Business Machines Corporation and others. All Rights Reserved.";
+		"Copyright Å  2001, International Business Machines Corporation and others. All Rights Reserved.";
 /**
  * Default constructor.
  */

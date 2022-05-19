@@ -4,7 +4,7 @@ import com.ibm.as400.access.*;
 import com.kingland.as400.access.*;
 
 /**
- * Copyright © 2001, International Business Machines Corporation and others. All Rights Reserved.
+ * Copyright Å  2001, International Business Machines Corporation and others. All Rights Reserved.
  **
  * <p>
  * Example program to retrieve and display the encrypted information stored
@@ -21,7 +21,7 @@ import com.kingland.as400.access.*;
  */
 public class RetrieveValidationListEntryEncryptedData {
 	static final String COPYRIGHT =
-		"Copyright © 2001, International Business Machines Corporation and others. All Rights Reserved.";
+		"Copyright Å  2001, International Business Machines Corporation and others. All Rights Reserved.";
 /**
  * Default constructor.
  */

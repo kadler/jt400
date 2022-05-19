@@ -4,7 +4,7 @@ import com.ibm.as400.access.*;
 import com.kingland.as400.access.*;
 
 /**
- * Copyright © 2001, International Business Machines Corporation and others. All Rights Reserved.
+ * Copyright Å  2001, International Business Machines Corporation and others. All Rights Reserved.
  **
  * <p>
  * Example program to change the contents of an AS/400 validation list entry.
@@ -18,7 +18,7 @@ import com.kingland.as400.access.*;
  */
 public class ChangeValidationListEntry extends ValidationListUtil {
 	static final String COPYRIGHT =
-		"Copyright © 2001, International Business Machines Corporation and others. All Rights Reserved.";
+		"Copyright Å  2001, International Business Machines Corporation and others. All Rights Reserved.";
 /**
  * Default constructor.
  */
