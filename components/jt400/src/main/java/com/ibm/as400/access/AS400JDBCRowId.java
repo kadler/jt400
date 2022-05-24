@@ -15,18 +15,18 @@ package com.ibm.as400.access;
 
 import java.io.Serializable;
 
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
 import java.sql.RowId;
-endif */ 
+////endif */ 
 
 //@PDA jdbc40 new class
 public class AS400JDBCRowId 
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
 implements RowId,Serializable
-endif */ 
-/* ifndef JDBC40 */
+////endif */ 
+/* ifndef JDBC40
 implements Serializable
-/* endif */ 
+/* ////endif */ 
 {
    
     private byte[] data_;
@@ -65,7 +65,7 @@ implements Serializable
   //JDBC40DOC      *     against.
   //JDBC40DOC      * @return true if the <code>RowId</code>s are equal; false otherwise
   //JDBC40DOC      */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public boolean equals(Object obj)
     {
         if (!(obj instanceof RowId))
@@ -84,7 +84,7 @@ implements Serializable
         }
         return true;
     }
-    endif */ 
+    ////endif */ 
     
     /** 
      * Returns an array of bytes representing the value of the SQL <code>ROWID</code>

@@ -25,40 +25,40 @@ import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.sql.SQLException;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import java.sql.SQLXML;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-endif */
+////endif */
 
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
 import javax.xml.transform.Result;
-endif */
-/* ifdef JDBC40
+////endif */
+/* ifdef JDBC40 */
 import javax.xml.transform.Source;
 import javax.xml.transform.dom.DOMResult;
-endif */
-/* ifdef JDBC40
+////endif */
+/* ifdef JDBC40 */
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.sax.SAXSource;
 import javax.xml.transform.stax.StAXResult;
 import javax.xml.transform.stax.StAXSource;
 import org.xml.sax.InputSource;
 import javax.xml.parsers.ParserConfigurationException;
-endif */
+////endif */
 
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import org.xml.sax.SAXException;
 
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.ls.DOMImplementationLS;
 import org.w3c.dom.ls.LSSerializer;
-endif */
+////endif */
 //@PDA jdbc40 new class
 //@xml2 whole class is redesigned after that of The Native Driver
 /**
@@ -71,12 +71,12 @@ Instances of this class are created by AS400JDBCConnection.
 This class should not be used if JDK 1.6 is not in use.
 **/
 public class AS400JDBCSQLXML
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 implements SQLXML, Serializable
-endif */
-/* ifndef JDBC40 */
+////endif */
+/* ifndef JDBC40
 implements Serializable
-/* endif */ 
+/* ////endif */ 
 
 {
 
@@ -583,7 +583,7 @@ implements Serializable
                 s = sb.toString();
 
                 break; // end of BLOB case
-                /* ifdef JDBC40
+                /* ifdef JDBC40 */
             case DOM_DOCUMENT:
 
                 DOMImplementation implementation = domDocument_.getImplementation();
@@ -594,7 +594,7 @@ implements Serializable
                 s  = lsSerializer.writeToString(domDocument_);
 
                 break;
-                endif */
+                ////endif */
 
             case 0:
                 //freed already
@@ -959,7 +959,7 @@ implements Serializable
   //JDBC40DOC      *   if an XML parser exception occurs.
   //JDBC40DOC      *   An exception is thrown if the state is not readable.
   //JDBC40DOC      */
-    /* ifdef JDBC40
+    /* ifdef JDBC40 */
     public synchronized <T extends Source> T getSource(Class<T> sourceClass) throws SQLException
     {
         String classname;
@@ -1046,7 +1046,7 @@ implements Serializable
         }
 
     }
-            endif */
+            ////endif */
 
     /**
      * Retrieves a stream that can be used to write the XML value that this SQLXML instance represents.
@@ -1116,7 +1116,7 @@ implements Serializable
   //JDBC40DOC      *   An exception is thrown if the state is not writable.
   //JDBC40DOC      * 
   //JDBC40DOC      */
-    /* ifdef JDBC40
+    /* ifdef JDBC40 */
     public synchronized <T extends Result> T setResult(Class<T> resultClass) throws SQLException
     {
         String classname;
@@ -1188,7 +1188,7 @@ implements Serializable
         }
     }
 
-    endif */
+    ////endif */
 
     /**
      * This method frees the object and releases the
@@ -1226,9 +1226,9 @@ implements Serializable
 
         if (clobValue_ != null)
         {
-/* ifdef JDBC40
+/* ifdef JDBC40 */
             clobValue_.free();
-    endif */
+    ////endif */
             clobValue_ = null;
         }
 

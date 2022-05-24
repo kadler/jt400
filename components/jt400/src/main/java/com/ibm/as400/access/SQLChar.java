@@ -20,14 +20,14 @@ import java.io.StringReader;
 import java.sql.Blob;
 import java.sql.Clob;
 
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import java.sql.NClob;
 import java.sql.RowId;
-endif */ 
+////endif */ 
 import java.sql.SQLException;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import java.sql.SQLXML;
-endif */ 
+////endif */ 
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Calendar;
@@ -162,14 +162,14 @@ extends SQLDataBase
             value = clob.getSubString(1, (int)clob.length());
         }      
         // @C2C
-        /* ifdef JDBC40
+        /* ifdef JDBC40 */
 
         else if(object instanceof SQLXML) //@PDA jdbc40 
         {    
             SQLXML xml = (SQLXML)object;
             value = xml.getString();
         }     
-endif */ 
+////endif */ 
         if(value == null)    {                                                       // @C2C
           if (JDTrace.isTraceOn()) {
               if (object == null) { 
@@ -432,9 +432,9 @@ endif */
 
      
     //@pda jdbc40
-    /* ifdef JDBC40
+    /* ifdef JDBC40 */
 
-     endif */ 
+     ////endif */ 
 
     //@pda jdbc40
     public String getNString() throws SQLException
@@ -453,7 +453,7 @@ endif */
     }
 
     //@pda jdbc40
-    /* ifdef JDBC40
+    /* ifdef JDBC40 */
 
     public RowId getRowId() throws SQLException
     {
@@ -472,9 +472,9 @@ endif */
         JDError.throwSQLException(this, JDError.EXC_DATA_TYPE_MISMATCH);
         return null;
     }
-   endif */ 
+   ////endif */ 
     //@pda jdbc40
-   /* ifdef JDBC40
+   /* ifdef JDBC40 */
 
     public SQLXML getSQLXML() throws SQLException
     {
@@ -483,7 +483,7 @@ endif */
         truncated_ = 0; outOfBounds_ = false; 
         return new AS400JDBCSQLXML(getString());     
     }
-   endif */ 
+   ////endif */ 
     // @array
     
     

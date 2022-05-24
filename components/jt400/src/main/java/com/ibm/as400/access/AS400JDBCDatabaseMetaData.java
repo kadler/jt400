@@ -17,9 +17,9 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import java.sql.RowIdLifetime;
-endif */
+////endif */
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
@@ -108,9 +108,9 @@ double-quotes.
 //----------------------------------------------------------
 
 public class AS400JDBCDatabaseMetaData
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 extends ToolboxWrapper
-endif */
+////endif */
 
 implements DatabaseMetaData
 {
@@ -1078,17 +1078,17 @@ implements DatabaseMetaData
             cs.setString(2, normalize(schemaPattern));
             cs.setString(3, normalize(tablePattern));
             cs.setString(4, normalize(columnPattern));
-/*ifdef JDBC40
+/*ifdef JDBC40 */
             // Use 4.1 if JDBC version is 4.1
             if (javaVersion > 16) {
               cs.setString(5, "DATATYPE='JDBC';JDBCVER='4.1';DYNAMIC=0;REPORTPUBLICPRIVILEGES=1;CURSORHOLD=1"); //@ver4
             } else {
               cs.setString(5, "DATATYPE='JDBC';JDBCVER='4.0';DYNAMIC=0;REPORTPUBLICPRIVILEGES=1;CURSORHOLD=1"); //@ver4
             }
-endif */
-/* ifndef JDBC40 */
+////endif */
+/* ifndef JDBC40
             cs.setString(5, "DATATYPE='JDBC';DYNAMIC=0;REPORTPUBLICPRIVILEGES=1;CURSORHOLD=1");
-/* endif */
+/* ////endif */
            
             try { 
                cs.execute();
@@ -1209,21 +1209,21 @@ endif */
                 "CHAR_OCTET_LENGTH",
                 "ORDINAL_POSITION",
                 "IS_NULLABLE",
-/* ifdef JDBC40
+/* ifdef JDBC40 */
                 "SCOPE_CATLOG",    //@G4A
-endif */
-/* ifndef JDBC40 */
+////endif */
+/* ifndef JDBC40
                 "SCOPE_CATALOG",    //@G4A
-/* endif */
+/* ////endif */
                 "SCOPE_SCHEMA",     //@G4A
                 "SCOPE_TABLE",      //@G4A
-/* ifndef JDBC40 */
+/* ifndef JDBC40
                 "SOURCE_DATA_TYPE"  //@G4A
-/* endif */
-/* ifdef JDBC40
+/* ////endif */
+/* ifdef JDBC40 */
                 "SOURCE_DATA_TYPE", //@G4A
                 "IS_AUTOINCREMENT"  //jdbc40
-endif */
+////endif */
             };
 
             sqlData = new SQLData[] { new SQLVarchar (128, settings_), // catalog
@@ -1248,9 +1248,9 @@ endif */
                 new SQLVarchar (128, settings_),  // scope schema        //@G4A
                 new SQLVarchar (128, settings_),  // scope table         //@G4A
                 new SQLSmallint (vrm, settings_), // source data type    //@G4A //@trunc3
-/* ifdef JDBC40
+/* ifdef JDBC40 */
                 new SQLVarchar (128, settings_),  // is autoincrement    //jdbc40
-endif */
+////endif */
             };
 
             fieldNullables = new int[] {columnNullable, // catalog
@@ -1275,9 +1275,9 @@ endif */
                 columnNullable, // scope schema     //@G4A
                 columnNullable, // scope table      //@G4A
                 columnNullable, // source data type //@G4A
-/* ifdef JDBC40
+/* ifdef JDBC40 */
                 columnNoNulls,  // is autoincrement //jdbc40
-endif */
+////endif */
             };
         }
 
@@ -1409,12 +1409,12 @@ endif */
                     if (!isJDBC3)                  //@F2A
                         maps = new JDFieldMap[18];
                     else
-/* ifdef JDBC40
+/* ifdef JDBC40 */
                        maps = new JDFieldMap[23]; //@G4A //jdbc40
-endif */
-/* ifndef JDBC40 */
+////endif */
+/* ifndef JDBC40
                         maps = new JDFieldMap[22]; //@G4A
-/* endif */
+/* ////endif */
 
                     maps[0] = new JDHardcodedFieldMap (connection_.getCatalog ());
                     maps[1] = new JDSimpleFieldMap (1); // library
@@ -1464,9 +1464,9 @@ endif */
                         maps[19] = new JDHardcodedFieldMap ("", true, false);  // scope schema     //@G4A
                         maps[20] = new JDHardcodedFieldMap ("", true, false);  // scope table      //@G4A
                         maps[21] = new JDHardcodedFieldMap (new Short((short) 0)); // source data type //@G4A
-/* ifdef JDBC40
+/* ifdef JDBC40 */
                         maps[22] = new JDHardcodedFieldMap ("");  // is autoincrement "" till switch to sysibm //jdbc40
-endif */
+////endif */
                     }
 
                     // Create the mapped row cache that is returned in the
@@ -3539,12 +3539,12 @@ endif */
             cs.setString(2, normalize(schemaPattern));
             cs.setString(3, normalize(procedurePattern));
             cs.setString(4, normalize(columnPattern));
-/* ifdef JDBC40
+/* ifdef JDBC40 */
             cs.setString(5, "DATATYPE='JDBC';JDBCVER='4.0';DYNAMIC=0;REPORTPUBLICPRIVILEGES=1;CURSORHOLD=1"); //@ver4
-endif */
-/* ifndef JDBC40 */
+////endif */
+/* ifndef JDBC40
             cs.setString(5, "DATATYPE='JDBC';DYNAMIC=0;REPORTPUBLICPRIVILEGES=1;CURSORHOLD=1");
-/* endif */
+/* ////endif */
             cs.execute();
 
             ResultSet rs = cs.getResultSet();  //@mdrs
@@ -3816,13 +3816,13 @@ endif */
             "RESERVED2",
             "RESERVED3",
             "REMARKS",
-/* ifdef JDBC40
+/* ifdef JDBC40 */
             "PROCEDURE_TYPE",
             "SPECIFIC_NAME" //@JDBC40
-endif */
-/* ifndef JDBC40 */
+////endif */
+/* ifndef JDBC40
             "PROCEDURE_TYPE"
-/* endif */
+/* ////endif */
         };
 
         SQLData[] sqlData = { new SQLVarchar (128, settings_),  // catalog
@@ -3832,14 +3832,14 @@ endif */
             new SQLInteger (vrm,settings_),     // reserved //@trunc3
             new SQLInteger (vrm,settings_),     // reserved //@trunc3
             new SQLVarchar (2000, settings_),  // remarks
-/* ifdef JDBC40
+/* ifdef JDBC40 */
             new SQLSmallint (vrm, settings_),     // procedure type //@trunc3
             new SQLVarchar (128, settings_)  // specific name //@JDBC40
 
-endif */
-/* ifndef JDBC40 */
+////endif */
+/* ifndef JDBC40
             new SQLSmallint (vrm, settings_)     // procedure type //@trunc3
-/* endif */
+/* ////endif */
         };
 
         int[] fieldNullables = {
@@ -3850,13 +3850,13 @@ endif */
             columnNullable,  // Reserved 2
             columnNullable,  // Reserved 3
             columnNoNulls,   // Remarks
-/* ifdef JDBC40
+/* ifdef JDBC40 */
             columnNoNulls,   // Procedure type
             columnNoNulls    // Specific name //@JDBC40
-endif */
-/* ifndef JDBC40 */
+////endif */
+/* ifndef JDBC40
             columnNoNulls    // Procedure type
-/* endif */
+/* ////endif */
         };
 
         JDSimpleRow formatRow = new JDSimpleRow (fieldNames, sqlData, fieldNullables);
@@ -3881,12 +3881,12 @@ endif */
             else
             {  // Parameters are valid, build request and send
                 StringBuffer selectStmt = new StringBuffer();
-/* ifdef JDBC40
+/* ifdef JDBC40 */
                 selectStmt.append ("SELECT ROUTINE_SCHEMA, ROUTINE_NAME, REMARKS, RESULTS, SPECIFIC_NAME ");//@PROC //@JDBC40
-endif */
-/* ifndef JDBC40 */
+////endif */
+/* ifndef JDBC40
                 selectStmt.append ("SELECT ROUTINE_SCHEMA, ROUTINE_NAME, REMARKS, RESULTS ");//@PROC
-/* endif */
+/* ////endif */
                 selectStmt.append ("FROM QSYS2" + getCatalogSeparator() + "SYSPROCS "); // use . or /
 
 
@@ -3929,12 +3929,12 @@ endif */
 
                 JDRowCache serverRowCache = new JDSimpleRowCache(serverResultSet.getRowCache());
                 statement_.close ();
-/* ifdef JDBC40
+/* ifdef JDBC40 */
                JDFieldMap[] maps = new JDFieldMap[9];
-endif */
-/* ifndef JDBC40 */
+////endif */
+/* ifndef JDBC40
                 JDFieldMap[] maps = new JDFieldMap[8];
-/* endif */
+/* ////endif */
                 maps[0] = new JDHardcodedFieldMap (connection_.getCatalog());
                 maps[1] = new JDSimpleFieldMap (1); // schema
                 maps[2] = new JDSimpleFieldMap (2); // procedure
@@ -3943,9 +3943,9 @@ endif */
                 maps[5] = new JDHardcodedFieldMap (new Integer (0));
                 maps[6] = new JDHandleNullFieldMap (3, ""); // remarks
                 maps[7] = new JDProcTypeFieldMap (4);
-/* ifdef JDBC40
+/* ifdef JDBC40 */
                 maps[8] = new JDSimpleFieldMap (5); //@jdbc40
-endif */
+////endif */
 
                 JDMappedRow mappedRow = new JDMappedRow (formatRow, maps);
                 rowCache = new JDMappedRowCache (mappedRow, serverRowCache);
@@ -4085,7 +4085,7 @@ endif */
     @exception  SQLException    This exception is never thrown.
     **/
   public String getSQLKeywords() throws SQLException {
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
     // Updated 2014/01/24
     return  "ACCORDING,ACCTNG,ACTION,ACTIVATE,"
         + "ALIAS,ALLOW,APPEND,APPLNAME,ARRAY_AGG,ASC,"
@@ -4140,8 +4140,8 @@ endif */
         + "XMLPARSE,XMLPI,XMLROW,XMLSERIALIZE,XMLTABLE,"
         + "XMLTEXT,XMLVALIDATE,XSLTRANSFORM,XSROBJECT,"
         + "YEARS,YES";
-endif */
-/* ifndef JDBC40 */
+////endif */
+/* ifndef JDBC40
       return "AFTER,ALIAS,ALLOW,APPLICATION,ASSOCIATE,ASUTIME,AUDIT," +                 // @J2M
       "AUX,AUXILIARY,BEFORE,BINARY," +                                           // @J2A
       "BUFFERPOOL,CACHE,CALL,CALLED,CAPTURE,CARDINALITY,CCSID,CLUSTER," +        // @J2A
@@ -4178,7 +4178,7 @@ endif */
       "VARIABLE," +                                                              // @J2A
       "VARIANT,VCAT,VOLUMES,WHILE,WLM,YEARS";                                    // @J2A
 
-/* endif */
+/* ////endif */
 
     }
 
@@ -5237,10 +5237,10 @@ endif */
             cs.setShort(1, (short) SQL_ALL_TYPES);
 /* ifdef  JDBC40
             cs.setString(2, "DATATYPE='JDBC';JDBCVER='4.0';DYNAMIC=0;REPORTPUBLICPRIVILEGES=1;CURSORHOLD=1"); //@ver4
-endif */
-/* ifndef JDBC40 */
+////endif */
+/* ifndef JDBC40
             cs.setString(2, "DATATYPE='JDBC';DYNAMIC=0;REPORTPUBLICPRIVILEGES=1;CURSORHOLD=1");
-/* endif */
+/* ////endif */
             cs.execute();
             ResultSet rs = cs.getResultSet();  //@mdrs
             if(rs != null)                        //@mdrs
@@ -5543,12 +5543,12 @@ endif */
             }
 
             cs.setString(4, typesStringBuffer.toString());
-/* ifdef JDBC40
+/* ifdef JDBC40 */
             cs.setString(5, "DATATYPE='JDBC';JDBCVER='4.0';DYNAMIC=0;REPORTPUBLICPRIVILEGES=1;CURSORHOLD=1"); //@ver4
-endif */
-/* ifndef JDBC40 */
+////endif */
+/* ifndef JDBC40
             cs.setString(5, "DATATYPE='JDBC';DYNAMIC=0;REPORTPUBLICPRIVILEGES=1;CURSORHOLD=1");
-/* endif */
+/* ////endif */
             cs.execute();
             ResultSet rs = cs.getResultSet();  //@mdrs
             if(rs != null)                        //@mdrs
@@ -7812,12 +7812,12 @@ endif */
   //JDBC40DOC      *
   //JDBC40DOC      * @throws SQLException if a database access error occurs
   //JDBC40DOC      */
-    /* ifdef JDBC40
+    /* ifdef JDBC40 */
     public RowIdLifetime getRowIdLifetime() throws SQLException
     {
         return RowIdLifetime.ROWID_VALID_FOREVER; //toolbox rowid is forever
     }
-   endif */
+   ////endif */
 
     //@PDA jdbc40
     /**
@@ -8083,12 +8083,12 @@ endif */
         cstmt.setString(2, normalize(schemaPattern));
         cstmt.setString(3, normalize(functionNamePattern));
         cstmt.setString(4, normalize(columnNamePattern));
-/* ifdef JDBC40
+/* ifdef JDBC40 */
         cstmt.setObject(5, "DATATYPE='JDBC';JDBCVER='4.0';DYNAMIC=0;REPORTPUBLICPRIVILEGES=1;CURSORHOLD=1"); //@mdsp //@ver
-endif */
-/* ifndef JDBC40 */
+////endif */
+/* ifndef JDBC40
         cstmt.setObject(5, "DATATYPE='JDBC';DYNAMIC=0;REPORTPUBLICPRIVILEGES=1;CURSORHOLD=1"); //@mdsp
-/* endif */
+/* ////endif */
         cstmt.execute();//@mdrs
         ResultSet rs = cstmt.getResultSet();  //@mdrs
         if(rs != null)                        //@mdrs
@@ -8172,12 +8172,12 @@ endif */
       cstmt.setString(2, normalize(schemaPattern));
       cstmt.setString(3, normalize(tableNamePattern));
       cstmt.setString(4, normalize(columnNamePattern));
-/* ifdef JDBC40
+/* ifdef JDBC40 */
       cstmt.setObject(5, "DATATYPE='JDBC';JDBCVER='4.0';DYNAMIC=0;REPORTPUBLICPRIVILEGES=1;CURSORHOLD=1"); //@mdsp //@ver
-endif */
-/* ifndef JDBC40 */
+////endif */
+/* ifndef JDBC40
       cstmt.setObject(5, "DATATYPE='JDBC';DYNAMIC=0;REPORTPUBLICPRIVILEGES=1;CURSORHOLD=1"); //@mdsp
-/* endif */
+/* ////endif */
       cstmt.execute();//@mdrs
       ResultSet rs = cstmt.getResultSet();  //@mdrs
       if(rs != null)                        //@mdrs

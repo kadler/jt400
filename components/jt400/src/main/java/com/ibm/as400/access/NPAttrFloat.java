@@ -110,7 +110,7 @@ class NPAttrFloat extends NPAttribute implements Cloneable,
           hostValue[byteIndex] = 0x0D;      // negative sign
        } else {
           hostValue[byteIndex] = 0x0F;      // positive sign
-       } /* endif */
+       } /* ////endif */
 
        // fHighNibble indicates which half-byte we're working on.
        // We started with the low nibble and used it for the sign,
@@ -127,7 +127,7 @@ class NPAttrFloat extends NPAttribute implements Cloneable,
           } else {
              hostValue[byteIndex] |= (byte)digit << 4;   // mask it in on the high nibble.
              byteIndex--;                                // go to next byte.
-          } /* endif */
+          } /* ////endif */
           fHighNibble = !fHighNibble;
        } /* endfor */
 
@@ -164,7 +164,7 @@ class NPAttrFloat extends NPAttribute implements Cloneable,
               fHighNibble = true;
            } else {
               fHighNibble = false;
-           } /* endif */
+           } /* ////endif */
 
            for (i=0; i < DIGITS; i++)
            {
@@ -176,7 +176,7 @@ class NPAttrFloat extends NPAttribute implements Cloneable,
               } else {
                  j = (int)(hostData[byteIndex]) & 0x0F;     // get low nibble
                  byteIndex++;
-              } /* endif */
+              } /* ////endif */
               fHighNibble = !fHighNibble;
 
               // should we check j to be >= 0 && <= 9 here?
@@ -194,8 +194,8 @@ class NPAttrFloat extends NPAttribute implements Cloneable,
            if (j == 0x0D)
            {
               attrValue_ *= -1.0;
-           } /* endif */
-        }  /* endif - hostData == NULL */
+           } /* ////endif */
+        }  /* ////endif - hostData == NULL */
 
     }
 

@@ -28,9 +28,9 @@ import java.sql.*;
  * wrapper code in one class, we decided to keep it. 
  */
 class ToolboxWrapper 
-/* ifdef JDBC40  
+/* ifdef JDBC40 */  
 implements Wrapper 
- endif */ 
+ ////endif */ 
 {
 
   
@@ -67,7 +67,7 @@ implements Wrapper
   //JDBC40DOC      *             if an error occurs while determining whether this is a
   //JDBC40DOC      *             wrapper for an object with the given interface.
   //JDBC40DOC      */
-    /* ifdef JDBC40   
+    /* ifdef JDBC40 */   
     public boolean isWrapperFor(Class<?> iface) throws SQLException 
     {
         if (iface == null)
@@ -82,7 +82,7 @@ implements Wrapper
 
         return false;
     }
-     endif */ 
+     ////endif */ 
   //JDBC40DOC     /**
   //JDBC40DOC      * Returns an object that implements the given interface to allow access to
   //JDBC40DOC      * non-standard methods, or standard methods not exposed by the proxy.
@@ -102,7 +102,7 @@ implements Wrapper
   //JDBC40DOC      * @throws java.sql.SQLException If a database error occurs.
   //JDBC40DOC      *             If no object found that implements the interface
   //JDBC40DOC      */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public <T> T unwrap(Class<T> iface) throws SQLException {
         if (isWrapperFor(iface))
             return (T)this;
@@ -115,5 +115,5 @@ implements Wrapper
         }
         
     }
-     endif */
+     ////endif */
 }

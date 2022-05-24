@@ -885,7 +885,7 @@ implements SpooledFileImpl
         // else
         //  create our own attribute/value codepoint to put in the type of
         //   send to do.
-        // endif
+        // ////endif
         if (sendOptions != null)
         {
             cpSendOptions = sendOptions.getAttrCodePoint();
@@ -969,7 +969,7 @@ implements SpooledFileImpl
         // else
         //     create our own attribute/value codepoint to put in
         //     the type of send to do.
-        // endif
+        // ////endif
         if (sendOptions != null)
         {
             cpSendOptions = sendOptions.getAttrCodePoint();

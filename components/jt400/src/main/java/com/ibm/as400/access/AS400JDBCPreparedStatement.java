@@ -27,27 +27,27 @@ import java.sql.Clob;
 import java.sql.DataTruncation;
 import java.sql.Date;
 import java.sql.SQLWarning;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
  import java.sql.NClob;
- endif */
+ ////endif */
 import java.sql.ParameterMetaData;
 import java.sql.PreparedStatement;
 import java.sql.Ref;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
  import java.sql.RowId;
- endif */
+ ////endif */
 import java.sql.SQLException;
 /* ifdef JDBC42
 import java.sql.SQLType;
 import java.sql.JDBCType;
 
-endif */
-/* ifdef JDBC40
+////endif */
+/* ifdef JDBC40 */
  import java.sql.SQLXML;
  import java.sql.SQLFeatureNotSupportedException;
- endif */
+ ////endif */
 import java.sql.Statement;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -1001,9 +1001,9 @@ public abstract class AS400JDBCPreparedStatement extends AS400JDBCStatement impl
   // JDBC40DOC * @throws SQLException if a database access error occurs
   // JDBC40DOC *
   // JDBC40DOC */
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
     public abstract void setRowId(int parameterIndex, RowId x) throws SQLException;
-endif */
+////endif */
   // @PDA jdbc40
   /**
    * Sets the designated paramter to the given <code>String</code> object. The
@@ -1052,10 +1052,10 @@ endif */
   // JDBC40DOC * character sets; if the driver can detect that a data conversion
   // JDBC40DOC * error could occur ; or if a database access error occurs
   // JDBC40DOC */
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
      public abstract void setNClob(int parameterIndex, NClob value) throws SQLException;
     
-endif */
+////endif */
 
   // @PDA jdbc40
   /**
@@ -1129,9 +1129,9 @@ endif */
   // JDBC40DOC      * @param xmlObject a <code>SQLXML</code> object that maps an SQL <code>XML</code> value
   // JDBC40DOC * @throws SQLException if a database access error occurs
   // JDBC40DOC */
-  /* ifdef JDBC40 
+  /* ifdef JDBC40 */ 
      public abstract void setSQLXML(int parameterIndex, SQLXML xmlObject) throws SQLException;
-     endif */
+     ////endif */
 
   // @pda jdbc40
   protected String[] getValidWrappedList() {
@@ -1439,10 +1439,10 @@ endif */
         Object x,
 /* ifdef JDBC42        
         SQLType  
-endif*/ 
+////endif*/ 
 /* ifndef JDBC42 */
 Object
-/* endif */
+/* ////endif */
         targetSqlType,
         int scaleOrLength)
  throws SQLException ;
@@ -1465,10 +1465,10 @@ Object
                          Object x,
                          /* ifdef JDBC42        
                          SQLType  
-                   endif*/ 
+                   ////endif*/ 
                    /* ifndef JDBC42 */
                    Object
-                   /* endif */
+                   /* ////endif */
                          targetSqlType)
                   throws SQLException;
   

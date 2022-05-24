@@ -330,7 +330,7 @@ public class SCS5219Writer extends SCS5224Writer
           throw new ExtendedIllegalArgumentException(arg, 2);
        } else {
           destinationDrawer = (byte)drawer;
-       } /* endif */
+       } /* ////endif */
     }
 
 
@@ -457,7 +457,7 @@ public class SCS5219Writer extends SCS5224Writer
           throw new ExtendedIllegalArgumentException(arg, 2);
        } else {
           sourceDrawer = (byte)drawer;
-       } /* endif */
+       } /* ////endif */
     }
 
 
@@ -477,8 +477,8 @@ public class SCS5219Writer extends SCS5224Writer
              addToBuffer(BUS);
           } else {
              addToBuffer(EUS);
-          } /* endif */
-       } /* endif */
+          } /* ////endif */
+       } /* ////endif */
     }
 
 }

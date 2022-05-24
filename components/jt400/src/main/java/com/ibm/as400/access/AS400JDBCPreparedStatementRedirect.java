@@ -1674,10 +1674,10 @@ while (true) {
         Object x,
 /* ifdef JDBC42        
         SQLType  
-endif*/ 
+////endif*/ 
 /* ifndef JDBC42 */
 Object
-/* endif */
+/* ////endif */
         targetSqlType,
         int scaleOrLength)
  throws SQLException  {
@@ -1706,10 +1706,10 @@ Object
         Object x,
         /* ifdef JDBC42        
         SQLType  
-  endif*/ 
+  ////endif*/ 
   /* ifndef JDBC42 */
   Object
-  /* endif */
+  /* ////endif */
         targetSqlType)
  throws SQLException {
       int retryCount = AS400JDBCConnectionRedirect.SEAMLESS_RETRY_COUNT;
@@ -1814,7 +1814,7 @@ Object
     
 
     
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 
 
     public void setNClob(int parameterIndex, NClob clob) throws SQLException {
@@ -1886,6 +1886,6 @@ Object
      } 
 
  
-endif */
+////endif */
 
 }

@@ -19,40 +19,40 @@ import java.net.SocketException;
 import java.sql.Array;
 import java.sql.Blob;
 import java.sql.CallableStatement;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import java.sql.ClientInfoStatus;
 import java.sql.SQLClientInfoException;
 import java.sql.SQLPermission;
-endif */
+////endif */
 import java.sql.Clob;
 import java.sql.DatabaseMetaData;
 import java.sql.DataTruncation;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import java.sql.NClob;
-endif */
+////endif */
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLWarning;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import java.sql.SQLXML;
-endif */
+////endif */
 import java.sql.Statement;
 import java.sql.Savepoint;                        // @E10a
 import java.sql.Struct;
 import java.util.Enumeration;               // @DAA
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import java.util.HashMap;
-endif */
+////endif */
 import java.util.Map;
 import java.util.Properties;
 import java.util.Vector;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.Executor;
-endif */
+////endif */
 
 
 /**
@@ -4984,7 +4984,7 @@ throws SQLException
   //JDBC40DOC     * @return true if the connection is valid, false otherwise
   //JDBC40DOC     * @exception SQLException if a database access error occurs.
   //JDBC40DOC */
-    /* ifdef JDBC40
+    /* ifdef JDBC40 */
     public boolean isValid(int timeout) throws SQLException
     {
         DBSQLRequestDS request = null;
@@ -5096,7 +5096,7 @@ throws SQLException
 
     }
 
-    endif */
+    ////endif */
 
 
 
@@ -5150,12 +5150,12 @@ throws SQLException
 //JDBC40DOC      *          setting the client info value on the database server.
      */
     public void setClientInfo(String name, String value)
-/* ifdef JDBC40
+/* ifdef JDBC40 */
     throws SQLClientInfoException
-endif */
-    /* ifndef JDBC40 */
+////endif */
+    /* ifndef JDBC40
     throws SQLException
-    /* endif  */
+    /* ////endif  */
     {
 
         DBSQLAttributesDS request = null;
@@ -5242,17 +5242,17 @@ endif */
                 clientHostname_ = oldValue;
             else if (name.equals(clientProgramIDPropertyName_)) //@pda
                 clientProgramID_ = oldValue;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 
             //@PDD jdbc40 merge HashMap<String,ClientInfoStatus> m = new HashMap<String,ClientInfoStatus>();
             HashMap m = new HashMap();
             m.put(name, ClientInfoStatus.REASON_UNKNOWN);
             JDError.throwSQLClientInfoException( this, JDError.EXC_INTERNAL, e, m );
 
-endif */
-/* ifndef JDBC40 */
+////endif */
+/* ifndef JDBC40
             JDError.throwSQLException( this, JDError.EXC_INTERNAL, e);
-/* endif */
+/* ////endif */
         } finally
         {
             if (request != null) {
@@ -5309,12 +5309,12 @@ endif */
      *             <p>
      */
     public void setClientInfo(Properties properties)
-    /* ifdef JDBC40
+    /* ifdef JDBC40 */
     throws SQLClientInfoException
-    endif */
-    /* ifndef JDBC40 */
+    ////endif */
+    /* ifndef JDBC40
     throws SQLException
-    /* endif */
+    /* ////endif */
     {
         String newApplicationName = properties.getProperty(applicationNamePropertyName_);
         String newClientHostname = properties.getProperty(clientHostnamePropertyName_);
@@ -5370,7 +5370,7 @@ endif */
 
         } catch( Exception e)
         {
-/* ifdef JDBC40
+/* ifdef JDBC40 */
             //create Map<String,ClientInfoStatus> for exception constructor
             //@PDD jdbc40 merge HashMap<String,ClientInfoStatus> m = new HashMap<String,ClientInfoStatus>();
             HashMap m = new HashMap();
@@ -5382,10 +5382,10 @@ endif */
             }
             JDError.throwSQLClientInfoException( this, JDError.EXC_INTERNAL, e, m);
 
-endif */
-/* ifndef JDBC40 */
+////endif */
+/* ifndef JDBC40
         	JDError.throwSQLException( this, JDError.EXC_INTERNAL, e);
-/* endif */
+/* ////endif */
         } finally
         {
             if (request != null) {
@@ -5540,12 +5540,12 @@ endif */
   //JDBC40DOC     * <code>NClob</code> interface can not be constructed.
   //JDBC40DOC     *
   //JDBC40DOC     */
-     /*ifdef JDBC40
+     /*ifdef JDBC40 */
     public NClob createNClob() throws SQLException
     {
         return new AS400JDBCNClob("", AS400JDBCNClob.MAX_LOB_SIZE);
     }
-endif */
+////endif */
 
     //@PDA jdbc40
   //JDBC40DOC    /**
@@ -5557,12 +5557,12 @@ endif */
   //JDBC40DOC     * @throws SQLException if an object that implements the <code>SQLXML</code> interface can not
   //JDBC40DOC     * be constructed
   //JDBC40DOC     */
-     /*ifdef JDBC40
+     /*ifdef JDBC40 */
     public SQLXML createSQLXML() throws SQLException
     {
         return new AS400JDBCSQLXML(AS400JDBCSQLXML.MAX_XML_SIZE);
     }
-    endif */
+    ////endif */
 
     //@PDA //@array
     /**
@@ -5709,7 +5709,7 @@ endif */
   //JDBC40DOC      * @throws  SecurityException - if a security manager exists and its checkPermission
   //JDBC40DOC      *	method denies calling abort
   //JDBC40DOC     */
-/* ifdef JDBC40
+/* ifdef JDBC40 */
   public void abort(Executor executor) throws SQLException {
 
     if (JDTrace.isTraceOn())
@@ -5744,7 +5744,7 @@ endif */
 
     executor.execute(runnable);
   }
-endif */
+////endif */
 
 
 
@@ -5813,14 +5813,14 @@ endif */
 
    public void setNetworkTimeout(int timeout) throws SQLException {
 
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 
      SecurityManager security = System.getSecurityManager();
      if (security != null) {
           SQLPermission sqlPermission = new SQLPermission("setNetworkTimeout");
           security.checkPermission(sqlPermission);
      }
-endif */
+////endif */
 
 
      // Make sure that the THREAD_USED property is false. The default is true
@@ -5920,7 +5920,7 @@ endif */
 //JDBC40DOC     * @see  #abort(java.util.concurrent.Executor)
 //JDBC40DOC     * @see  Executor
 //JDBC40DOC     **/
-/* ifdef JDBC40
+/* ifdef JDBC40 */
   public void setNetworkTimeout(Executor executor, int milliseconds)
       throws SQLException {
  
@@ -5966,7 +5966,7 @@ endif */
     }
 
   }
-endif */
+////endif */
 
   /**
    *Sets the given schema name to access.

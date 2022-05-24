@@ -34,22 +34,22 @@ import java.sql.Clob;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import java.sql.NClob;
 import java.sql.PreparedStatement;
-endif */ 
+////endif */ 
 
 import java.sql.Ref;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
 import java.sql.RowId;
-endif */ 
+////endif */ 
 import java.sql.SQLException;
 import java.sql.SQLWarning;
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
 import java.sql.SQLXML;
-endif */ 
+////endif */ 
 import java.sql.Statement;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -119,9 +119,9 @@ import java.util.Map;
 *  </ul>
 **/
 public class AS400JDBCRowSet 
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 extends ToolboxWrapper
-endif */ 
+////endif */ 
 implements RowSet, Serializable             // @A3C
 {
   static final String copyright = "Copyright (C) 1997-2010 International Business Machines Corporation and others.";
@@ -4597,13 +4597,13 @@ implements RowSet, Serializable             // @A3C
  // JDBC40DOC     *         character sets;  if the driver can detect that a data conversion
  // JDBC40DOC     *  error could occur ; or if a database access error occurs
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void setNClob(int parameterIndex, NClob value) throws SQLException
     {
         validateStatement();
         statement_.setNClob(parameterIndex, value);
     } 
-    endif */ 
+    ////endif */ 
 
     //@pda jdbc40
  // JDBC40DOC    /**
@@ -4616,13 +4616,13 @@ implements RowSet, Serializable             // @A3C
  // JDBC40DOC     *         character sets;  if the driver can detect that a data conversion
  // JDBC40DOC     *  error could occur; or if a database access error occurs
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void setNClob(String parameterName, NClob value) throws SQLException
     {
         validateStatement();
         statement_.setNClob(statement_.findParameterIndex(parameterName), value);
     }
-    endif */ 
+    ////endif */ 
     
     //@pda jdbc40
     /**
@@ -4672,13 +4672,13 @@ implements RowSet, Serializable             // @A3C
  // JDBC40DOC     * @param x the parameter value
  // JDBC40DOC     * @throws SQLException if a database access error occurs
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void setRowId(int parameterIndex, RowId x) throws SQLException
     {
         validateStatement();
         statement_.setRowId(parameterIndex, x);
     }
-    endif */ 
+    ////endif */ 
 
     //@pda jdbc40
  // JDBC40DOC    /**
@@ -4690,13 +4690,13 @@ implements RowSet, Serializable             // @A3C
  // JDBC40DOC    * @param x the parameter value
  // JDBC40DOC    * @throws SQLException if a database access error occurs
  // JDBC40DOC    */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void setRowId(String parameterName, RowId x) throws SQLException
     {
         validateStatement();
         statement_.setRowId(statement_.findParameterIndex(parameterName), x);
     }
-   endif */ 
+   ////endif */ 
     //@pda jdbc40
  // JDBC40DOC    /**
  // JDBC40DOC      * Sets the designated parameter to the given <code>java.sql.SQLXML</code> object. The driver converts this to an
@@ -4711,13 +4711,13 @@ implements RowSet, Serializable             // @A3C
  // JDBC40DOC      *  of the exception may provide a more detailed exception, for example, if the 
  // JDBC40DOC      *  stream does not contain valid XML.
  // JDBC40DOC      */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void setSQLXML(int parameterIndex, SQLXML xmlObject) throws SQLException
     {
         validateStatement();
         statement_.setSQLXML(parameterIndex, xmlObject);
     }
-    endif */ 
+    ////endif */ 
 
     //@pda jdbc40
  // JDBC40DOC    /**
@@ -4733,13 +4733,13 @@ implements RowSet, Serializable             // @A3C
  // JDBC40DOC     *  of the exception may provide a more detailed exception, for example, if the 
  // JDBC40DOC     *  stream does not contain valid XML.
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void setSQLXML(String parameterName, SQLXML xmlObject) throws SQLException
     {
         validateStatement();
         statement_.setSQLXML(statement_.findParameterIndex(parameterName), xmlObject);
     }
-   endif */ 
+   ////endif */ 
     
     //@pda jdbc40
  // JDBC40DOC    /**
@@ -4761,12 +4761,12 @@ implements RowSet, Serializable             // @A3C
  // JDBC40DOC       will be the value of #3.
  // JDBC40DOC     * @throws SQLException if a database error occurs
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public int getHoldability() throws SQLException
     {
         return resultSet_.getHoldability();
     }
-    endif */ 
+    ////endif */ 
     
     //@pda jdbc40
     /**
@@ -4826,13 +4826,13 @@ implements RowSet, Serializable             // @A3C
  // JDBC40DOC     *  error could occur; this method is called on a closed result set 
  // JDBC40DOC     * or if a database access error occurs
  // JDBC40DOC     */
-    /* ifdef JDBC40
+    /* ifdef JDBC40 */
     public NClob getNClob(int columnIndex) throws SQLException
     {
         validateResultSet();
         return resultSet_.getNClob(columnIndex);
     }
-    endif */ 
+    ////endif */ 
 
     //@pda jdbc40
  // JDBC40DOC    /**
@@ -4848,13 +4848,13 @@ implements RowSet, Serializable             // @A3C
  // JDBC40DOC     *  error could occur; this method is called on a closed result set 
  // JDBC40DOC     * or if a database access error occurs
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public NClob getNClob(String columnLabel) throws SQLException
     {
         validateResultSet();
         return resultSet_.getNClob(columnLabel);
     }
-    endif */ 
+    ////endif */ 
 
     //@pda jdbc40
     /**
@@ -4910,13 +4910,13 @@ implements RowSet, Serializable             // @A3C
  // JDBC40DOC     * @throws SQLException if a database access error occurs 
  // JDBC40DOC     * or this method is called on a closed result set
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public RowId getRowId(int columnIndex) throws SQLException
     {
         validateResultSet();
         return resultSet_.getRowId(columnIndex);
     }
-    endif */ 
+    ////endif */ 
 
     //@pda jdbc40
  // JDBC40DOC    /**
@@ -4930,13 +4930,13 @@ implements RowSet, Serializable             // @A3C
  // JDBC40DOC     * @throws SQLException if a database access error occurs 
  // JDBC40DOC     * or this method is called on a closed result set
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public RowId getRowId(String columnLabel) throws SQLException
     {
         validateResultSet();
         return resultSet_.getRowId(columnLabel);
     }
-   endif */ 
+   ////endif */ 
     
     //@pda jdbc40
  // JDBC40DOC    /**
@@ -4948,13 +4948,13 @@ implements RowSet, Serializable             // @A3C
  // JDBC40DOC     * @throws SQLException if a database access error occurs 
  // JDBC40DOC     * or this method is called on a closed result set
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public SQLXML getSQLXML(int columnIndex) throws SQLException
     {
         validateResultSet();
         return resultSet_.getSQLXML(columnIndex);
     }
-    endif */ 
+    ////endif */ 
 
     //@pda jdbc40
 
@@ -4967,13 +4967,13 @@ implements RowSet, Serializable             // @A3C
  // JDBC40DOC     * @throws SQLException if a database access error occurs 
  // JDBC40DOC     * or this method is called on a closed result set    
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public SQLXML getSQLXML(String columnLabel) throws SQLException
     {
         validateResultSet();
         return resultSet_.getSQLXML(columnLabel);
     }
-    endif */ 
+    ////endif */ 
 
     //@pda jdbc40
     /**
@@ -5346,7 +5346,7 @@ implements RowSet, Serializable             // @A3C
  // JDBC40DOC     * if a database access error occurs or
  // JDBC40DOC     * the result set concurrency is <code>CONCUR_READ_ONLY</code> 
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void updateNClob(int columnIndex, NClob nClob) throws SQLException
     {
         validateResultSet();
@@ -5354,7 +5354,7 @@ implements RowSet, Serializable             // @A3C
 
         eventSupport_.fireRowChanged(new RowSetEvent(this));  
     }
-    endif */ 
+    ////endif */ 
 
     //@pda jdbc40
  // JDBC40DOC    /**
@@ -5372,7 +5372,7 @@ implements RowSet, Serializable             // @A3C
  // JDBC40DOC     *  if a database access error occurs or
  // JDBC40DOC     * the result set concurrency is <code>CONCUR_READ_ONLY</code> 
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void updateNClob(String columnLabel, NClob nClob) throws SQLException
     {
         validateResultSet();
@@ -5380,7 +5380,7 @@ implements RowSet, Serializable             // @A3C
 
         eventSupport_.fireRowChanged(new RowSetEvent(this));  
     }
-    endif */ 
+    ////endif */ 
     
     
     //@pda jdbc40
@@ -5522,7 +5522,7 @@ implements RowSet, Serializable             // @A3C
  // JDBC40DOC     * the result set concurrency is <code>CONCUR_READ_ONLY</code> 
  // JDBC40DOC     * or this method is called on a closed result set
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void updateRowId(int columnIndex, RowId x) throws SQLException
     {
         validateResultSet();
@@ -5530,7 +5530,7 @@ implements RowSet, Serializable             // @A3C
 
         eventSupport_.fireRowChanged(new RowSetEvent(this));  
     } 
-    endif */ 
+    ////endif */ 
     
 
     //@pda jdbc40
@@ -5547,7 +5547,7 @@ implements RowSet, Serializable             // @A3C
  // JDBC40DOC     * the result set concurrency is <code>CONCUR_READ_ONLY</code> 
  // JDBC40DOC     * or this method is called on a closed result set
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void updateRowId(String columnLabel, RowId x) throws SQLException
     {
         validateResultSet();
@@ -5555,7 +5555,7 @@ implements RowSet, Serializable             // @A3C
 
         eventSupport_.fireRowChanged(new RowSetEvent(this));  
     }
-    endif */ 
+    ////endif */ 
     
 
     //@pda jdbc40
@@ -5580,7 +5580,7 @@ implements RowSet, Serializable             // @A3C
  // JDBC40DOC     *  of the exception may provide a more detailed exception, for example, if the 
  // JDBC40DOC     *  stream does not contain valid XML.
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void updateSQLXML(int columnIndex, SQLXML xmlObject) throws SQLException
     {
         validateResultSet();
@@ -5588,7 +5588,7 @@ implements RowSet, Serializable             // @A3C
 
         eventSupport_.fireRowChanged(new RowSetEvent(this));  
     }
-    endif */ 
+    ////endif */ 
     
 
     //@pda jdbc40
@@ -5613,7 +5613,7 @@ implements RowSet, Serializable             // @A3C
  // JDBC40DOC     *  of the exception may provide a more detailed exception, for example, if the 
  // JDBC40DOC     *  stream does not contain valid XML.
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void updateSQLXML(String columnLabel, SQLXML xmlObject) throws SQLException
     {
         validateResultSet();
@@ -5621,7 +5621,7 @@ implements RowSet, Serializable             // @A3C
 
         eventSupport_.fireRowChanged(new RowSetEvent(this));  
     }
-    endif */ 
+    ////endif */ 
 
     //@pda jdbc40
     protected String[] getValidWrappedList()

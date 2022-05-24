@@ -16,9 +16,9 @@ package com.ibm.as400.access;
 import javax.sql.ConnectionEvent;
 import javax.sql.ConnectionEventListener;
 import javax.sql.PooledConnection;
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
 import javax.sql.StatementEventListener;
-endif */ 
+////endif */ 
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -469,7 +469,7 @@ public class AS400JDBCPooledConnection implements PooledConnection
 //JDBC40DOC      * @param listener  an component which implements the <code>StatementEventListener</code> 
 //JDBC40DOC      *                  interface that is to be registered with this <code>PooledConnection</code> object
 //JDBC40DOC      */
-  /* ifdef JDBC40 
+  /* ifdef JDBC40 */ 
   public void addStatementEventListener(StatementEventListener listener)
   {
       //Currently toolbox does not have a pooledStatemnt.
@@ -481,7 +481,7 @@ public class AS400JDBCPooledConnection implements PooledConnection
         JDTrace.logInformation(this, "AS400JDBCPooledConnection.addStatementEventListener is called, but is N/A."); 
       }
   }
-  endif */ 
+  ////endif */ 
   
     //@PDA jdbc40 
 //JDBC40DOC     /**
@@ -493,7 +493,7 @@ public class AS400JDBCPooledConnection implements PooledConnection
 //JDBC40DOC      *                  <code>StatementEventListener</code> interface that was previously 
 //JDBC40DOC      *                  registered with this <code>PooledConnection</code> object
 //JDBC40DOC      */
-  /* ifdef JDBC40 
+  /* ifdef JDBC40 */ 
   public void removeStatementEventListener(StatementEventListener listener)
   {
       //Method can not throw SQLException
@@ -503,6 +503,6 @@ public class AS400JDBCPooledConnection implements PooledConnection
         JDTrace.logInformation(this, "AS400JDBCPooledConnection.removeStatementEventListener is called, but is N/A."); 
       }
   }
-  endif */ 
+  ////endif */ 
 
 }

@@ -25,27 +25,27 @@ import java.sql.Clob;
 import java.sql.Connection;
 import java.sql.DataTruncation;
 import java.sql.Date;
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
 import java.sql.NClob;
-endif */ 
+////endif */ 
 import java.sql.PreparedStatement;
 import java.sql.Ref;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
 import java.sql.RowId;
-endif */ 
+////endif */ 
 import java.sql.SQLException;
 import java.sql.SQLWarning;
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
 import java.sql.SQLXML;
-endif */ 
+////endif */ 
 import java.sql.Statement;
 import java.sql.Time;
 import java.sql.Timestamp;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import java.sql.Types;
-endif */ 
+////endif */ 
 import java.util.Calendar;
 import java.util.Map;
 
@@ -53,7 +53,7 @@ import java.util.Map;
 import java.sql.SQLType; 
 import java.sql.JDBCType; 
 import java.sql.SQLFeatureNotSupportedException;
-endif */
+////endif */
 
 
 /**
@@ -184,9 +184,9 @@ index rather than accessing them by their name.
 //    result, we must create a new default Calendar each time.
 //
 public class AS400JDBCResultSet 
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
 extends ToolboxWrapper
-endif */ 
+////endif */ 
 
 implements ResultSet
 {
@@ -5403,11 +5403,11 @@ implements ResultSet
         if(scale < 0)
             JDError.throwSQLException (JDError.EXC_SCALE_INVALID);
 
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
         if (columnValue instanceof SQLXML)                   //@xmlspec
             updateSQLXML(columnIndex, (SQLXML)columnValue);  //@xmlspec
         else
-endif */ 
+////endif */ 
             updateValue (columnIndex, columnValue, null, scale); //@P0C
     }
 
@@ -6078,7 +6078,7 @@ endif */
   //JDBC40DOC      *         character sets;  if the driver can detect that a data conversion
   //JDBC40DOC      *  error could occur; or if a database access error occurss
   //JDBC40DOC      */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public NClob getNClob(int columnIndex) throws SQLException
     {
         synchronized(internalLock_)
@@ -6089,7 +6089,7 @@ endif */
             return value;
         }
     }
-   endif */ 
+   ////endif */ 
 
     //@pda jdbc40
  // JDBC40DOC    /**
@@ -6104,12 +6104,12 @@ endif */
  // JDBC40DOC     *         character sets;  if the driver can detect that a data conversion
  // JDBC40DOC     *  error could occur; or if a database access error occurs
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public NClob getNClob(String columnName) throws SQLException
     {
         return getNClob (findColumn (columnName));
     }
-    endif */ 
+    ////endif */ 
 
     //@pda jdbc40
     /**
@@ -6168,7 +6168,7 @@ endif */
  // JDBC40DOC     *     value returned is <code>null</code>
  // JDBC40DOC     * @throws SQLException if a database access error occurs
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public RowId getRowId(int columnIndex) throws SQLException
     {
         synchronized(internalLock_)
@@ -6179,7 +6179,7 @@ endif */
             return value;
         }
     }
-    endif */ 
+    ////endif */ 
     
 
 
@@ -6194,12 +6194,12 @@ endif */
  // JDBC40DOC     *     value returned is <code>null</code>
  // JDBC40DOC     * @throws SQLException if a database access error occurs
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public RowId getRowId(String columnName) throws SQLException
     {
         return getRowId(findColumn (columnName));
     }
-    endif */ 
+    ////endif */ 
 
     //@pda jdbc40
  // JDBC40DOC    /**
@@ -6210,7 +6210,7 @@ endif */
  // JDBC40DOC     * @return a <code>SQLXML</code> object that maps an <code>SQL XML</code> value
  // JDBC40DOC     * @throws SQLException if a database access error occurs
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public SQLXML getSQLXML(int columnIndex) throws SQLException
     {
         synchronized(internalLock_)
@@ -6221,7 +6221,7 @@ endif */
             return value;
         }
     }
-    endif */ 
+    ////endif */ 
 
 
     //@pda jdbc40
@@ -6233,12 +6233,12 @@ endif */
  // JDBC40DOC     * @return a <code>SQLXML</code> object that maps an <code>SQL XML</code> value
  // JDBC40DOC     * @throws SQLException if a database access error occurs
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public SQLXML getSQLXML(String columnName) throws SQLException
     {
         return getSQLXML(findColumn (columnName));
     }
-    endif */ 
+    ////endif */ 
     
 
 
@@ -6257,12 +6257,12 @@ endif */
  // JDBC40DOC     *         character sets;  if the driver can detect that a data conversion
  // JDBC40DOC     *  error could occur; or if a database access error occurs
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void updateNClob(int columnIndex, NClob nClob) throws SQLException
     {
         updateValue (columnIndex, nClob, null, -1);
     }
-    endif */ 
+    ////endif */ 
     
     //@PDA jdbc40
  // JDBC40DOC    /**
@@ -6278,13 +6278,13 @@ endif */
  // JDBC40DOC     *         character sets;  if the driver can detect that a data conversion
  // JDBC40DOC     *  error could occur; or if a database access error occurs
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void updateNClob(String columnName, NClob nClob) throws SQLException
     {
         updateNClob (findColumn (columnName), nClob);
         
     }
-    endif */ 
+    ////endif */ 
     
 
     //@pda jdbc40
@@ -6341,12 +6341,12 @@ endif */
  // JDBC40DOC     * @param x the column value
  // JDBC40DOC     * @throws SQLException if a database access occurs 
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void updateRowId(int columnIndex, RowId x) throws SQLException
     {
         updateValue (columnIndex, x, null, -1);
     }
-    endif */ 
+    ////endif */ 
     
 
     //@pda jdbc40
@@ -6361,12 +6361,12 @@ endif */
  // JDBC40DOC     * @param x the column value
  // JDBC40DOC     * @throws SQLException if a database access occurs 
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void updateRowId(String columnName, RowId x) throws SQLException
     {
         updateRowId (findColumn (columnName), x);
     }
-    endif */
+    ////endif */
 
     //@pda jdbc40
  // JDBC40DOC    /**
@@ -6380,7 +6380,7 @@ endif */
  // JDBC40DOC     * @param xmlObject the value for the column to be updated
  // JDBC40DOC     * @throws SQLException if a database access error occurs
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void updateSQLXML(int columnIndex, SQLXML xmlObject) throws SQLException
     {
         //@xmlspec special handling of blob/clob column types
@@ -6408,7 +6408,7 @@ endif */
                 updateValue (columnIndex, xmlObject, null, -1); 
         }
     }
-    endif */ 
+    ////endif */ 
 
     //@pda jdbc40
  // JDBC40DOC    /**
@@ -6423,12 +6423,12 @@ endif */
  // JDBC40DOC     * @param xmlObject the column value
  // JDBC40DOC     * @throws SQLException if a database access occurs 
  // JDBC40DOC     */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void updateSQLXML(String columnName, SQLXML xmlObject) throws SQLException
     {
         updateSQLXML(findColumn(columnName), xmlObject);
     }
-    endif */ 
+    ////endif */ 
     
     //@pda jdbc40
     protected String[] getValidWrappedList()
@@ -7445,14 +7445,14 @@ endif */
       return getRef(columnIndex);
       } else if (type == URL.class){
         return getURL(columnIndex);
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
       } else if (type == NClob.class){
         return getNClob(columnIndex);
       } else if (type == RowId.class){
         return getRowId(columnIndex);
       } else if (type == SQLXML.class){
         return getSQLXML(columnIndex);
-endif */
+////endif */
       } else if (type == Object.class){
         return getObject(columnIndex);
       }
@@ -7546,10 +7546,10 @@ protected void addSavedException(SQLException savedException) {
   int mapSQLType(
 /* ifdef JDBC42        
       SQLType  
-endif*/ 
+////endif*/ 
 /* ifndef JDBC42 */
 Object
-/* endif */
+/* ////endif */
       targetSqlType ) throws SQLException {
      /* ifdef JDBC42 
        
@@ -7558,10 +7558,10 @@ Object
     }
       throw new SQLFeatureNotSupportedException("targetSqlType="+targetSqlType);    
  
-      endif */
+      ////endif */
     /* ifndef JDBC42 */
        return 0; 
-    /* endif */ 
+    /* ////endif */ 
   }
 
   /**
@@ -7590,10 +7590,10 @@ Object
                             Object x,
                             /* ifdef JDBC42        
                             SQLType  
-                      endif*/ 
+                      ////endif*/ 
                       /* ifndef JDBC42 */
                       Object
-                      /* endif */
+                      /* ////endif */
                             targetSqlType,
                             int scaleOrLength)
                      throws SQLException {
@@ -7627,10 +7627,10 @@ Object
                             Object x,
                             /* ifdef JDBC42        
                             SQLType  
-                      endif*/ 
+                      ////endif*/ 
                       /* ifndef JDBC42 */
                       Object
-                      /* endif */
+                      /* ////endif */
                             targetSqlType,
                             int scaleOrLength)
                      throws SQLException {
@@ -7655,10 +7655,10 @@ Object
                             Object x,
                             /* ifdef JDBC42        
                             SQLType  
-                      endif*/ 
+                      ////endif*/ 
                       /* ifndef JDBC42 */
                       Object
-                      /* endif */
+                      /* ////endif */
                             targetSqlType)
                      throws SQLException
   {
@@ -7683,10 +7683,10 @@ Object
                             Object x,
                             /* ifdef JDBC42        
                             SQLType  
-                      endif*/ 
+                      ////endif*/ 
                       /* ifndef JDBC42 */
                       Object
-                      /* endif */
+                      /* ////endif */
                             targetSqlType)
                      throws SQLException
                      {

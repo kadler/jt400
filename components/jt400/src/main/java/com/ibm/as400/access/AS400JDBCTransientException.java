@@ -13,13 +13,13 @@
 
 package com.ibm.as400.access;
 
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
 import java.sql.SQLTransientException;
-endif */
+////endif */
 
-/* ifndef JDBC40 */ 
+/* ifndef JDBC40 
 import java.sql.SQLException;
-/* endif */ 
+/* ////endif */ 
 
 /**
  * The AS400JDBCTransientException is the JTOpen version of
@@ -29,12 +29,12 @@ import java.sql.SQLException;
  */
 
 public class AS400JDBCTransientException
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 extends SQLTransientException
-endif */
-/* ifndef JDBC40 */ 
+////endif */
+/* ifndef JDBC40 
 extends SQLException
-/* endif */ 
+/* ////endif */ 
 
 {
 

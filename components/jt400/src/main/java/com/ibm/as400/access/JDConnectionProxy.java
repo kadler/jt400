@@ -17,24 +17,24 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.Array;
 import java.sql.Blob;
 import java.sql.CallableStatement;
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
 import java.sql.ClientInfoStatus;
-endif */ 
+////endif */ 
 import java.sql.Clob;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
 import java.sql.NClob;
-endif */ 
+////endif */ 
 import java.sql.PreparedStatement;
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
 import java.sql.SQLClientInfoException;
 import java.sql.SQLXML;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.concurrent.Executor;
-endif */ 
+////endif */ 
 import java.sql.Savepoint;   
 import java.sql.SQLException;
 import java.sql.SQLWarning;
@@ -848,12 +848,12 @@ implements Connection
    * <p>
    */
   public void setClientInfo(String name, String value) 
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
     throws SQLClientInfoException
-endif */ 
-/* ifndef JDBC40 */ 
+////endif */ 
+/* ifndef JDBC40 
    throws SQLException 
-/* endif */ 
+/* ////endif */ 
     {
         try
         {
@@ -862,7 +862,7 @@ endif */
                     new Object[] { name, value });
         } catch (SQLException e)
         {
-        /* ifdef JDBC40 
+        /* ifdef JDBC40 */ 
             //may be SQLException or SQLClientInfoException
             if(e instanceof SQLClientInfoException)
                 throw (SQLClientInfoException)e;
@@ -875,10 +875,10 @@ endif */
                 SQLClientInfoException clientIE = new SQLClientInfoException(e.getMessage(), e.getSQLState(), m);
                 throw clientIE;
             }
-endif */ 
-/* ifndef JDBC40 */ 
+////endif */ 
+/* ifndef JDBC40 
 	throw e;
-/* endif */ 
+/* ////endif */ 
         }
     }
 
@@ -928,12 +928,12 @@ endif */
 //JDBC40DOC   *      setClientInfo(String, String)
    */
   public void setClientInfo(Properties properties) 
-  /* ifdef JDBC40 
+  /* ifdef JDBC40 */ 
   throws SQLClientInfoException
-endif */ 
-/* ifndef JDBC40 */ 
+////endif */ 
+/* ifndef JDBC40 
   throws SQLException
-/* endif */ 
+/* ////endif */ 
   {
       try
       {
@@ -942,7 +942,7 @@ endif */
                   new Object[] { properties });
       }catch(SQLException e)
       {
-      /* ifdef JDBC40 
+      /* ifdef JDBC40 */ 
           //may be SQLException or SQLClientInfoException
           if(e instanceof SQLClientInfoException)
               throw (SQLClientInfoException)e;
@@ -961,10 +961,10 @@ endif */
               SQLClientInfoException clientIE = new SQLClientInfoException(e.getMessage(), e.getSQLState(), m);
               throw clientIE;
           }
-          endif */ 
-          /* ifndef JDBC40 */ 
+          ////endif */ 
+          /* ifndef JDBC40 
           	throw e; 
-          /* endif */ 
+          /* ////endif */ 
       }
   }
 
@@ -1086,12 +1086,12 @@ endif */
 //JDBC40DOC    * <code>NClob</code> interface can not be constructed.
 //JDBC40DOC    *
 //JDBC40DOC    */
-  /* ifdef JDBC40 
+  /* ifdef JDBC40 */ 
   public NClob createNClob() throws SQLException
   {
       return (NClob) callMethodRtnObj("createNClob");
   }
-endif */ 
+////endif */ 
   //@PDA jdbc40
 //JDBC40DOC   /**
 //JDBC40DOC    * Constructs an object that implements the <code>SQLXML</code> interface. The object
@@ -1102,12 +1102,12 @@ endif */
 //JDBC40DOC    * @throws SQLException if an object that implements the <code>SQLXML</code> interface can not
 //JDBC40DOC    * be constructed
 //JDBC40DOC    */
-  /* ifdef JDBC40 
+  /* ifdef JDBC40 */ 
   public SQLXML createSQLXML() throws SQLException
   {
       return (SQLXML) callMethodRtnObj("createSQLXML");
   }
-  endif */  
+  ////endif */  
   //@PDA jdbc40
   /**
    * Factory method for creating Array objects.
@@ -1171,7 +1171,7 @@ endif */
       return (String) callMethodRtnObj("getServerJobIdentifier");     // @pd2
   }                                                                   // @pd2
 
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
  
   // JDBC 4.1
   public void abort(Executor executor) throws SQLException {
@@ -1189,7 +1189,7 @@ endif */
     
   }
 
-endif */
+////endif */
   
   // JDBC 4.1
   public int getNetworkTimeout() throws SQLException {

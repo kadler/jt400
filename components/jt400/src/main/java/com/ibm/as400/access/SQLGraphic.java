@@ -19,14 +19,14 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.sql.Blob;
 import java.sql.Clob;
-/*ifdef JDBC40
+/*ifdef JDBC40 */
 import java.sql.NClob;
 import java.sql.RowId;
-endif */
+////endif */
 import java.sql.SQLException;
-/*ifdef JDBC40
+/*ifdef JDBC40 */
 import java.sql.SQLXML;
-endif */
+////endif */
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Calendar;
@@ -176,13 +176,13 @@ extends SQLDataBase
           value = getStringFromReader((Reader) object, ALL_READER_BYTES, this);
         }
 
-        /* ifdef JDBC40
+        /* ifdef JDBC40 */
         else if(object instanceof SQLXML) //@PDA jdbc40
         {
             SQLXML xml = (SQLXML)object;
             value = xml.getString();
         }
-        endif */
+        ////endif */
 
     if (value == null) {
       if (JDTrace.isTraceOn()) {
@@ -304,11 +304,11 @@ extends SQLDataBase
 
     public int getType()
     {
-/* ifdef JDBC40                 
+/* ifdef JDBC40 */                 
         if (ccsid_ == 1200) {
            return java.sql.Types.NCHAR; 
         }
-endif */ 
+////endif */ 
         return java.sql.Types.CHAR;
     }
 
@@ -449,7 +449,7 @@ endif */
         }
     }
 
-    /* ifdef JDBC40
+    /* ifdef JDBC40 */
     //@pda jdbc40
     public RowId getRowId() throws SQLException
     {
@@ -478,7 +478,7 @@ endif */
         truncated_ = 0; outOfBounds_ = false;
         return new AS400JDBCSQLXML(getString());
     }
-   endif */
+   ////endif */
 
     public void saveValue() {
       savedValue_ = value_; 

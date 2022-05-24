@@ -27,27 +27,27 @@ import java.sql.Clob;
 import java.sql.DataTruncation;
 import java.sql.Date;
 import java.sql.SQLWarning;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
  import java.sql.NClob;
- endif */
+ ////endif */
 import java.sql.ParameterMetaData;
 import java.sql.PreparedStatement;
 import java.sql.Ref;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
  import java.sql.RowId;
- endif */
+ ////endif */
 import java.sql.SQLException;
 /* ifdef JDBC42
 import java.sql.SQLType;
 import java.sql.JDBCType;
 
-endif */
-/* ifdef JDBC40
+////endif */
+/* ifdef JDBC40 */
  import java.sql.SQLXML;
  import java.sql.SQLFeatureNotSupportedException;
- endif */
+ ////endif */
 import java.sql.Statement;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -3220,11 +3220,11 @@ public class AS400JDBCPreparedStatementImpl extends AS400JDBCPreparedStatement  
 
     if (scale < 0)
       JDError.throwSQLException(this, JDError.EXC_SCALE_INVALID);
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
            if (parameterValue instanceof SQLXML) //@xmlspec
             setSQLXML(parameterIndex, (SQLXML)parameterValue);  //@xmlspec
         else
-endif */
+////endif */
 
     setValue(parameterIndex, parameterValue, null, scale); // @P0C
   }
@@ -3786,7 +3786,7 @@ endif */
   // JDBC40DOC * @throws SQLException if a database access error occurs
   // JDBC40DOC *
   // JDBC40DOC */
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
     public void setRowId(int parameterIndex, RowId x) throws SQLException
     {
         if(JDTrace.isTraceOn())
@@ -3799,7 +3799,7 @@ endif */
             }
             setValue (parameterIndex, x, null, -1); 
      } 
-endif */
+////endif */
   // @PDA jdbc40
   /**
    * Sets the designated paramter to the given <code>String</code> object. The
@@ -3873,7 +3873,7 @@ endif */
   // JDBC40DOC * character sets; if the driver can detect that a data conversion
   // JDBC40DOC * error could occur ; or if a database access error occurs
   // JDBC40DOC */
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
      public void setNClob(int parameterIndex, NClob value) throws SQLException
      {
 
@@ -3888,7 +3888,7 @@ endif */
       } 
       setClob(parameterIndex, value); 
    } 
-endif */
+////endif */
 
   // @PDA jdbc40
   /**
@@ -3997,7 +3997,7 @@ endif */
   // JDBC40DOC      * @param xmlObject a <code>SQLXML</code> object that maps an SQL <code>XML</code> value
   // JDBC40DOC * @throws SQLException if a database access error occurs
   // JDBC40DOC */
-  /* ifdef JDBC40 
+  /* ifdef JDBC40 */ 
      public void setSQLXML(int parameterIndex, SQLXML xmlObject) throws SQLException
      {
          if(JDTrace.isTraceOn())
@@ -4036,7 +4036,7 @@ endif */
     setValue (parameterIndex, xmlObject, null, -1);
   }
      }
-endif */
+////endif */
 
   // @pda jdbc40
   protected String[] getValidWrappedList() {
@@ -4809,10 +4809,10 @@ endif */
         Object x,
 /* ifdef JDBC42        
         SQLType  
-endif*/ 
+////endif*/ 
 /* ifndef JDBC42 */
 Object
-/* endif */
+/* ////endif */
         targetSqlType,
         int scaleOrLength)
  throws SQLException {
@@ -4828,10 +4828,10 @@ Object
   int mapSQLType(
       /* ifdef JDBC42        
       SQLType  
-endif*/ 
+////endif*/ 
 /* ifndef JDBC42 */
 Object
-/* endif */
+/* ////endif */
       targetSqlType ) throws SQLException {
      /* ifdef JDBC42 
        
@@ -4840,10 +4840,10 @@ Object
     }
       throw new SQLFeatureNotSupportedException("targetSqlType="+targetSqlType);    
  
-      endif */
+      ////endif */
     /* ifndef JDBC42 */
        return 0; 
-    /* endif */ 
+    /* ////endif */ 
   }
   
 
@@ -4862,10 +4862,10 @@ Object
                          Object x,
                          /* ifdef JDBC42        
                          SQLType  
-                   endif*/ 
+                   ////endif*/ 
                    /* ifndef JDBC42 */
                    Object
-                   /* endif */
+                   /* ////endif */
                          targetSqlType)
                   throws SQLException {
     int intType = mapSQLType(targetSqlType);

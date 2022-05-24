@@ -277,8 +277,8 @@ public class SCS3812Writer extends SCS5219Writer
              addToBuffer(BES);
           } else {
              addToBuffer(EES);
-          } /* endif */
-       } /* endif */
+          } /* ////endif */
+       } /* ////endif */
     }
 
     /** Sets duplex printing mode.  This is set once at the start of each

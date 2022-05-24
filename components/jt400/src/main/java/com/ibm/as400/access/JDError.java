@@ -13,13 +13,13 @@
 
 package com.ibm.as400.access;
 
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import java.sql.ClientInfoStatus;
 import java.sql.SQLClientInfoException;
 import java.sql.SQLDataException;
-endif */
+////endif */
 import java.sql.SQLException;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import java.sql.SQLFeatureNotSupportedException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.SQLInvalidAuthorizationSpecException;
@@ -28,7 +28,7 @@ import java.sql.SQLSyntaxErrorException;
 import java.sql.SQLTimeoutException;
 import java.sql.SQLTransactionRollbackException;
 import java.util.Map;
-endif */
+////endif */
 
 import java.sql.SQLWarning;
 
@@ -800,7 +800,7 @@ retrieved from the system.
 //JDBC40DOC    **/
   //
   //@pdc jdbc40 merge public static void throwSQLClientInfoException (Object thrower, String sqlState, Exception e, Map<String,ClientInfoStatus> m)
-  /* ifdef JDBC40
+  /* ifdef JDBC40 */
   public static SQLException throwSQLClientInfoException (Object thrower, String sqlState, Exception e, Map m)
   throws SQLClientInfoException
   {
@@ -836,7 +836,7 @@ retrieved from the system.
       }
       throw e2;
   }
-  endif */
+  ////endif */
   //@PDA jdbc40
 //JDBC40DOC   /**
 //JDBC40DOC    Helper class that creates a new sub-class object of SQLException for new jdbc 4.0 SQLException sub-classes.
@@ -862,30 +862,30 @@ retrieved from the system.
       case '0': {
           switch (digit1) {
           case 'A':
-/* ifdef JDBC40
+/* ifdef JDBC40 */
               return new SQLFeatureNotSupportedException(message, sqlState, vendorCode);
-endif */
-/* ifndef JDBC40 */            
+////endif */
+/* ifndef JDBC40            
             return new SQLException(message, sqlState, vendorCode);
-/* endif */             
+/* ////endif */             
           case '8':
               if (vendorCode == -30082) {
-/* ifdef JDBC40
+/* ifdef JDBC40 */
                   return new SQLInvalidAuthorizationSpecException(message, sqlState, vendorCode);
-endif */
-/* ifndef JDBC40 */            
+////endif */
+/* ifndef JDBC40            
                 return new SQLException(message, sqlState, vendorCode);
-/* endif */     
+/* ////endif */     
               } else if (vendorCode == -4498) {
                  return new AS400JDBCTransientException(message, sqlState, vendorCode); 
               } else {
                   // All connection exceptions on IBM i are NonTransient
-/* ifdef JDBC40
+/* ifdef JDBC40 */
                   return new SQLNonTransientConnectionException(message, sqlState, vendorCode);
-endif */
-/* ifndef JDBC40 */            
+////endif */
+/* ifndef JDBC40            
                 return new SQLException(message, sqlState, vendorCode);
-/* endif */             
+/* ////endif */             
               }
           default:
               return new SQLException(message, sqlState, vendorCode);
@@ -895,26 +895,26 @@ endif */
       case '2': {
           switch (digit1) {
           case '2':
-            /* ifdef JDBC40
+            /* ifdef JDBC40 */
               return new SQLDataException(message, sqlState, vendorCode);
-              endif */
-              /* ifndef JDBC40 */            
+              ////endif */
+              /* ifndef JDBC40            
                               return new SQLException(message, sqlState, vendorCode);
-              /* endif */             
+              /* ////endif */             
           case '3':
-            /* ifdef JDBC40
+            /* ifdef JDBC40 */
               return new SQLIntegrityConstraintViolationException(message, sqlState, vendorCode);
-              endif */
-              /* ifndef JDBC40 */            
+              ////endif */
+              /* ifndef JDBC40            
                               return new SQLException(message, sqlState, vendorCode);
-              /* endif */             
+              /* ////endif */             
           case '8':
-            /* ifdef JDBC40
+            /* ifdef JDBC40 */
               return new SQLInvalidAuthorizationSpecException(message, sqlState, vendorCode);
-              endif */
-              /* ifndef JDBC40 */            
+              ////endif */
+              /* ifndef JDBC40            
                               return new SQLException(message, sqlState, vendorCode);
-              /* endif */             
+              /* ////endif */             
 
           default :
               return new SQLException(message, sqlState, vendorCode);
@@ -924,12 +924,12 @@ endif */
       case '4':
           switch (digit1) {
           case '0':
-            /* ifdef JDBC40
+            /* ifdef JDBC40 */
               return new SQLTransactionRollbackException(message, sqlState, vendorCode);
-              endif */
-              /* ifndef JDBC40 */            
+              ////endif */
+              /* ifndef JDBC40            
                               return new SQLException(message, sqlState, vendorCode);
-              /* endif */             
+              /* ////endif */             
           case '2':
              {
               int positionOfSyntaxError = 0; 
@@ -952,35 +952,35 @@ endif */
           }
       case '5':
           if ( vendorCode == -952) {
-            /* ifdef JDBC40
+            /* ifdef JDBC40 */
               return new SQLTimeoutException(message, sqlState, vendorCode);
-              endif */
-              /* ifndef JDBC40 */            
+              ////endif */
+              /* ifndef JDBC40            
                               return new SQLException(message, sqlState, vendorCode);
-              /* endif */             
+              /* ////endif */             
           } else {
               return new SQLException(message, sqlState, vendorCode);
           }
       case 'I':
           if ("IM001".equals(sqlState)) {
-            /* ifdef JDBC40
+            /* ifdef JDBC40 */
               return new SQLFeatureNotSupportedException(message, sqlState, vendorCode);
-              endif */
-              /* ifndef JDBC40 */            
+              ////endif */
+              /* ifndef JDBC40            
                               return new SQLException(message, sqlState, vendorCode);
-              /* endif */             
+              /* ////endif */             
           } else {
               return new SQLException(message, sqlState, vendorCode);
           }
 
       case 'H' :
           if ("HY017".equals(sqlState)) {
-            /* ifdef JDBC40
+            /* ifdef JDBC40 */
               return new SQLNonTransientConnectionException(message, sqlState, vendorCode);
-              endif */
-              /* ifndef JDBC40 */            
+              ////endif */
+              /* ifndef JDBC40            
                               return new SQLException(message, sqlState, vendorCode);
-              /* endif */             
+              /* ////endif */             
           } else {
               return new SQLException(message, sqlState, vendorCode);
           }

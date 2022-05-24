@@ -16,35 +16,35 @@ package com.ibm.as400.access;
 import java.sql.Array;
 import java.sql.Blob;
 import java.sql.CallableStatement;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import java.sql.ClientInfoStatus;
 import java.sql.SQLClientInfoException;
 import java.sql.SQLPermission;
-endif */
+////endif */
 import java.sql.Clob;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import java.sql.NClob;
-endif */
+////endif */
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.SQLWarning;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import java.sql.SQLXML;
-endif */
+////endif */
 import java.sql.Statement;
 import java.sql.Savepoint;                        // @E10a
 import java.sql.Struct;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import java.util.HashMap;
-endif */
+////endif */
 import java.util.Map;
 import java.util.Properties;
-/* ifdef JDBC40
+/* ifdef JDBC40 */
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.Executor;
-endif */
+////endif */
 
 
 /**
@@ -53,9 +53,9 @@ used by all JDBC connection objects in JTOpen.
 **/
 public 
 abstract class  AS400JDBCConnection
-/*ifdef JDBC40
+/*ifdef JDBC40 */
 extends ToolboxWrapper
-endif */
+////endif */
 
 implements Connection
 {
@@ -1640,9 +1640,9 @@ implements Connection
   //JDBC40DOC     * @return true if the connection is valid, false otherwise
   //JDBC40DOC     * @exception SQLException if a database access error occurs.
   //JDBC40DOC */
-    /* ifdef JDBC40
+    /* ifdef JDBC40 */
     abstract public boolean isValid(int timeout) throws SQLException;
-    endif */
+    ////endif */
 
 
 
@@ -1696,12 +1696,12 @@ implements Connection
 //JDBC40DOC      *          setting the client info value on the database server.
      */
     abstract public void setClientInfo(String name, String value)
-/* ifdef JDBC40
+/* ifdef JDBC40 */
     throws SQLClientInfoException;
-endif */
-    /* ifndef JDBC40 */
+////endif */
+    /* ifndef JDBC40
     throws SQLException;
-    /* endif  */
+    /* ////endif  */
 
     //@PDA 550 client info
     /**
@@ -1745,12 +1745,12 @@ endif */
 //JDBC40DOC      *             clientInfo values on the database
      */
     abstract public void setClientInfo(Properties properties)
-/* ifdef JDBC40
+/* ifdef JDBC40 */
     throws SQLClientInfoException;
- endif */
-    /* ifndef JDBC40 */
+ ////endif */
+    /* ifndef JDBC40
     throws SQLException;
-    /* endif */
+    /* ////endif */
 
     //@PDA 550 client info
     /**
@@ -1860,9 +1860,9 @@ endif */
   //JDBC40DOC     * <code>NClob</code> interface can not be constructed.
   //JDBC40DOC     *
   //JDBC40DOC     */
-     /*ifdef JDBC40
+     /*ifdef JDBC40 */
     abstract public NClob createNClob() throws SQLException;
-endif */
+////endif */
 
     //@PDA jdbc40
   //JDBC40DOC    /**
@@ -1874,9 +1874,9 @@ endif */
   //JDBC40DOC     * @throws SQLException if an object that implements the <code>SQLXML</code> interface can not
   //JDBC40DOC     * be constructed
   //JDBC40DOC     */
-     /*ifdef JDBC40
+     /*ifdef JDBC40 */
     abstract public SQLXML createSQLXML() throws SQLException; 
-    endif */
+    ////endif */
 
     //@PDA //@array
     /**
@@ -1952,10 +1952,10 @@ endif */
   //JDBC40DOC      * @throws  SecurityException - if a security manager exists and its checkPermission
   //JDBC40DOC      *	method denies calling abort
   //JDBC40DOC     */
-/* ifdef JDBC40
+/* ifdef JDBC40 */
   abstract public void abort(Executor executor) throws SQLException ;
     
-endif */
+////endif */
 
 
 
@@ -2057,11 +2057,11 @@ endif */
 //JDBC40DOC     * @see  #abort(java.util.concurrent.Executor)
 //JDBC40DOC     * @see  Executor
 //JDBC40DOC     **/
-/* ifdef JDBC40
+/* ifdef JDBC40 */
   abstract public void setNetworkTimeout(Executor executor, int milliseconds)
       throws SQLException ;
       
-endif */
+////endif */
 
   /**
    *Sets the given schema name to access.

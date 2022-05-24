@@ -24,33 +24,33 @@ import java.sql.CallableStatement;
 import java.sql.Clob;
 import java.sql.DataTruncation;
 import java.sql.Date;
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
 import java.sql.NClob;
-endif */ 
+////endif */ 
 import java.sql.Ref;
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
 import java.sql.ResultSet;              //@G4A
 import java.sql.RowId;
-endif */ 
+////endif */ 
 import java.sql.SQLException;
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
 import java.sql.SQLXML;
 import java.sql.Statement;              //@G4A
-endif */ 
+////endif */ 
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.sql.Types;
 import java.util.Calendar;
 import java.util.Map;
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
 import java.util.Hashtable;             //@G4A
 import java.util.Vector;
-endif */ 
+////endif */ 
 /* ifdef JDBC42
 import java.sql.SQLType; 
 import java.sql.JDBCType; 
 import java.sql.SQLFeatureNotSupportedException;
-endif */
+////endif */
 
 
 /**
@@ -3470,7 +3470,7 @@ implements CallableStatement
   //JDBC40DOC      * @exception SQLFeatureNotSupportedException if the JDBC driver does not support
   //JDBC40DOC      * this method
   //JDBC40DOC      */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public NClob getNClob(int parameterIndex) throws SQLException
     {
         synchronized(internalLock_)
@@ -3526,7 +3526,7 @@ implements CallableStatement
             return value;
         }
     }
-    endif */
+    ////endif */
     
     //@PDA jdbc40
   //JDBC40DOC     /**
@@ -3543,12 +3543,12 @@ implements CallableStatement
   //JDBC40DOC      * @exception SQLFeatureNotSupportedException if the JDBC driver does not support
   //JDBC40DOC      * this method
   //JDBC40DOC      */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public NClob getNClob(String parameterName) throws SQLException
     {
         return getNClob(findParameterIndex(parameterName));  
     }
-    endif */ 
+    ////endif */ 
 
     //@PDA jdbc40
     /**
@@ -3655,7 +3655,7 @@ implements CallableStatement
   //JDBC40DOC      * @exception SQLFeatureNotSupportedException if the JDBC driver does not support
   //JDBC40DOC      * this method
   //JDBC40DOC      */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public RowId getRowId(int parameterIndex) throws SQLException
     {
         synchronized(internalLock_)
@@ -3701,7 +3701,7 @@ implements CallableStatement
             return value;
         }
     }
-    endif */ 
+    ////endif */ 
     
     //@PDA jdbc40
   //JDBC40DOC     /**
@@ -3717,12 +3717,12 @@ implements CallableStatement
   //JDBC40DOC      * @exception SQLFeatureNotSupportedException if the JDBC driver does not support
   //JDBC40DOC      * this method
   //JDBC40DOC      */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public RowId getRowId(String parameterName) throws SQLException
     {
         return getRowId(findParameterIndex(parameterName));  
     }
-    endif */ 
+    ////endif */ 
     
     //@PDA jdbc40
   //JDBC40DOC     /**
@@ -3735,7 +3735,7 @@ implements CallableStatement
   //JDBC40DOC      * @exception SQLFeatureNotSupportedException if the JDBC driver does not support
   //JDBC40DOC      * this method
   //JDBC40DOC      */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public SQLXML getSQLXML(int parameterIndex) throws SQLException
     {
         synchronized(internalLock_)
@@ -3781,7 +3781,7 @@ implements CallableStatement
             return value;
         }
     }
-    endif */ 
+    ////endif */ 
     
     //@PDA jdbc40
   //JDBC40DOC     /**
@@ -3794,12 +3794,12 @@ implements CallableStatement
   //JDBC40DOC      * @exception SQLFeatureNotSupportedException if the JDBC driver does not support
   //JDBC40DOC      * this method
   //JDBC40DOC      */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public SQLXML getSQLXML(String parameterName) throws SQLException
     {
         return getSQLXML(findParameterIndex(parameterName));  
     } 
-    endif */ 
+    ////endif */ 
 
     //@PDA jdbc40
     /**
@@ -4058,7 +4058,7 @@ implements CallableStatement
   //JDBC40DOC      * @exception SQLFeatureNotSupportedException if the JDBC driver does not support
   //JDBC40DOC      * this method
   //JDBC40DOC      */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void setNClob(String parameterName, NClob value) throws SQLException
     {
         if(JDTrace.isTraceOn())
@@ -4071,7 +4071,7 @@ implements CallableStatement
 
         setNClob(findParameterIndex(parameterName), value);
     }
-    endif */ 
+    ////endif */ 
     
     //@PDA jdbc40
     /**
@@ -4147,7 +4147,7 @@ implements CallableStatement
   //JDBC40DOC      * @exception SQLFeatureNotSupportedException if the JDBC driver does not support
   //JDBC40DOC      * this method
   //JDBC40DOC      */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void setRowId(String parameterName, RowId x) throws SQLException
     {
         if(JDTrace.isTraceOn())
@@ -4160,7 +4160,7 @@ implements CallableStatement
 
         setRowId(findParameterIndex(parameterName), x);
     }
-   endif */ 
+   ////endif */ 
     
     //@PDA jdbc40
   //JDBC40DOC     /**
@@ -4176,7 +4176,7 @@ implements CallableStatement
   //JDBC40DOC      * @exception SQLFeatureNotSupportedException if the JDBC driver does not support
   //JDBC40DOC      * this method
   //JDBC40DOC      */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void setSQLXML(String parameterName, SQLXML xmlObject) throws SQLException
     {
         if(JDTrace.isTraceOn())
@@ -4189,7 +4189,7 @@ implements CallableStatement
 
         setSQLXML(findParameterIndex(parameterName), xmlObject);
     }
-    endif */ 
+    ////endif */ 
 
     //@PDA jdbc40 
     /**
@@ -4526,14 +4526,14 @@ implements CallableStatement
         return getRef(parameterIndex);
       } else if (type == URL.class){
         return getURL(parameterIndex);
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
       } else if (type == NClob.class){
         return getNClob(parameterIndex);
       } else if (type == RowId.class){
         return getRowId(parameterIndex);
       } else if (type == SQLXML.class){
         return getSQLXML(parameterIndex);
-endif */
+////endif */
       } else if (type == Object.class){
         return getObject(parameterIndex);
       }
@@ -4588,10 +4588,10 @@ endif */
     static int mapSQLTypeCS(
         /* ifdef JDBC42        
         SQLType  
-  endif*/ 
+  ////endif*/ 
   /* ifndef JDBC42 */
   Object
-  /* endif */
+  /* ////endif */
         targetSqlType ) throws SQLException {
        /* ifdef JDBC42 
          
@@ -4600,10 +4600,10 @@ endif */
       }
         throw new SQLFeatureNotSupportedException("targetSqlType="+targetSqlType);    
    
-        endif */
+        ////endif */
       /* ifndef JDBC42 */
          return 0; 
-      /* endif */ 
+      /* ////endif */ 
     }
     
     
@@ -4641,10 +4641,10 @@ endif */
                            Object x,
                            /* ifdef JDBC42        
                            SQLType  
-                     endif*/ 
+                     ////endif*/ 
                      /* ifndef JDBC42 */
                      Object
-                     /* endif */
+                     /* ////endif */
                            targetSqlType,
                            int scaleOrLength)                    throws SQLException
            {
@@ -4669,10 +4669,10 @@ endif */
                            Object x,
 /* ifdef JDBC42        
                            SQLType  
-endif*/ 
+////endif*/ 
 /* ifndef JDBC42 */
                      Object
-/* endif */
+/* ////endif */
                            targetSqlType)
                     throws SQLException
                     {
@@ -4705,10 +4705,10 @@ endif*/
     public void registerOutParameter(int parameterIndex,
 /* ifdef JDBC42        
         SQLType  
-endif*/ 
+////endif*/ 
 /* ifndef JDBC42 */
         Object
-/* endif */
+/* ////endif */
                                       sqlType)
                                throws SQLException{
       int intType = mapSQLTypeCS(sqlType);
@@ -4736,10 +4736,10 @@ endif*/
     public void registerOutParameter(int parameterIndex,
         /* ifdef JDBC42        
         SQLType  
-endif*/ 
+////endif*/ 
 /* ifndef JDBC42 */
         Object
-/* endif */
+/* ////endif */
                                       sqlType,
                                       int scale)
                                throws SQLException {
@@ -4775,10 +4775,10 @@ endif*/
     public void registerOutParameter(int parameterIndex,
 /* ifdef JDBC42        
         SQLType  
-endif*/ 
+////endif*/ 
 /* ifndef JDBC42 */
         Object
-/* endif */
+/* ////endif */
                                       sqlType,
                                       String typeName)
                                throws SQLException {
@@ -4808,10 +4808,10 @@ endif*/
    public void registerOutParameter(String parameterName,
        /* ifdef JDBC42        
        SQLType  
-endif*/ 
+////endif*/ 
 /* ifndef JDBC42 */
        Object
-/* endif */
+/* ////endif */
                                       sqlType)
                                throws SQLException {
      int intType = mapSQLTypeCS(sqlType);
@@ -4839,10 +4839,10 @@ endif*/
   public void registerOutParameter(String parameterName,
       /* ifdef JDBC42        
       SQLType  
-endif*/ 
+////endif*/ 
 /* ifndef JDBC42 */
       Object
-/* endif */
+/* ////endif */
                                       sqlType,
                                       int scale)
                                throws SQLException {
@@ -4883,10 +4883,10 @@ endif*/
   public void registerOutParameter(String parameterName,
       /* ifdef JDBC42        
       SQLType  
-endif*/ 
+////endif*/ 
 /* ifndef JDBC42 */
       Object
-/* endif */
+/* ////endif */
                                       sqlType,
                                       String typeName)
                                throws SQLException

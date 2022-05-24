@@ -26,9 +26,9 @@ import java.sql.*;
  * Its primary purpose is for retrieving data back from the database.
  **/
 public class AS400JDBCArrayResultSet  
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
 extends ToolboxWrapper 
- endif */ 
+ ////endif */ 
 implements ResultSet
 {
 
@@ -3376,7 +3376,7 @@ implements ResultSet
   //JDBC40DOC   *         character sets;  if the driver can detect that a data conversion
   //JDBC40DOC   *  error could occur; or if a database access error occurss
   //JDBC40DOC   */
- /* ifdef JDBC40 
+ /* ifdef JDBC40 */ 
     public java.sql.NClob getNClob (int column) throws java.sql.SQLException
     {
         
@@ -3402,7 +3402,7 @@ implements ResultSet
         wasNull_ = (columnData[currentRowInRowset_] == null) ? WAS_NULL : WAS_NOT_NULL;
         return result;
     }
-endif */
+////endif */
     
   //JDBC40DOC   /**
   //JDBC40DOC   * Retrieves the value of the designated column in the current row
@@ -3416,14 +3416,14 @@ endif */
   //JDBC40DOC   *         character sets;  if the driver can detect that a data conversion
   //JDBC40DOC   *  error could occur; or if a database access error occurss
   //JDBC40DOC   */
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
     public java.sql.NClob getNClob (String columnName) throws java.sql.SQLException
     {
         if (JDTrace.isTraceOn()) JDTrace.logInformation(this, "getNClob");
         return getNClob (findColumnX (columnName));
     }
 
-endif */ 
+////endif */ 
 
     /**
      * Retrieves the value of the designated column in the current row
@@ -3493,7 +3493,7 @@ endif */
   //JDBC40DOC      *     value returned is <code>null</code>
   //JDBC40DOC      * @throws SQLException if a database access error occurs
   //JDBC40DOC      */
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
     public java.sql.RowId getRowId (int column) throws java.sql.SQLException
     {
         if (JDTrace.isTraceOn()) JDTrace.logInformation(this, "getRowId");
@@ -3519,7 +3519,7 @@ endif */
         wasNull_ = (columnData[currentRowInRowset_] == null) ? WAS_NULL : WAS_NOT_NULL;
         return result;
     }
-endif */ 
+////endif */ 
 
   //JDBC40DOC     /**
   //JDBC40DOC      * Retrieves the value of the designated column in the current row of this 
@@ -3531,13 +3531,13 @@ endif */
   //JDBC40DOC      *     value returned is <code>null</code>
   //JDBC40DOC      * @throws SQLException if a database access error occurs
   //JDBC40DOC      */
-/* ifdef JDBC40  
+/* ifdef JDBC40 */  
     public java.sql.RowId getRowId (String columnName) throws java.sql.SQLException
     {
         if (JDTrace.isTraceOn()) JDTrace.logInformation(this, "getRowId");
         return getRowId (findColumnX (columnName));
     }
- endif */ 
+ ////endif */ 
 
   //JDBC40DOC     /**
   //JDBC40DOC      * Retrieves the value of the designated column in  the current row of
@@ -3547,7 +3547,7 @@ endif */
   //JDBC40DOC      * @return a <code>SQLXML</code> object that maps an <code>SQL XML</code> value
   //JDBC40DOC      * @throws SQLException if a database access error occurs
   //JDBC40DOC      */
-/* ifdef JDBC40  
+/* ifdef JDBC40 */  
     public java.sql.SQLXML getSQLXML (int column) throws java.sql.SQLException
     {
         if (JDTrace.isTraceOn()) JDTrace.logInformation(this, "getSQLXML");
@@ -3573,7 +3573,7 @@ endif */
         wasNull_ = (columnData[currentRowInRowset_] == null) ? WAS_NULL : WAS_NOT_NULL;
         return result;
     }
- endif */ 
+ ////endif */ 
 
   //JDBC40DOC     /**
   //JDBC40DOC      * Retrieves the value of the designated column in  the current row of
@@ -3583,13 +3583,13 @@ endif */
   //JDBC40DOC      * @return a <code>SQLXML</code> object that maps an <code>SQL XML</code> value
   //JDBC40DOC      * @throws SQLException if a database access error occurs
   //JDBC40DOC      */
-/* ifdef JDBC40  
+/* ifdef JDBC40 */  
     public java.sql.SQLXML getSQLXML (String columnName) throws java.sql.SQLException
     {
         if (JDTrace.isTraceOn()) JDTrace.logInformation(this, "getSQLXML");
         return getSQLXML (findColumnX (columnName));
     }
-endif */ 
+////endif */ 
     /** 
      * Updates the designated column with an ascii stream value, which will have
      * the specified number of bytes.
@@ -4005,13 +4005,13 @@ endif */
   //JDBC40DOC      * @throws SQLFeatureNotSupportedException if the JDBC driver does not support
   //JDBC40DOC      * this method
   //JDBC40DOC      */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void updateNClob (int column, java.sql.NClob x) throws java.sql.SQLException
     {
         if (JDTrace.isTraceOn()) JDTrace.logInformation(this, "updateNClob" );
         checkUpdatePreconditions (column);
     }
-    endif */ 
+    ////endif */ 
 
   //JDBC40DOC     /**
   //JDBC40DOC      * Updates the designated column using the given <code>Reader</code>
@@ -4027,13 +4027,13 @@ endif */
   //JDBC40DOC      * @throws SQLFeatureNotSupportedException if the JDBC driver does not support
   //JDBC40DOC      * this method
   //JDBC40DOC      */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void updateNClob (String columnName, java.sql.NClob x) throws java.sql.SQLException
     {
         if (JDTrace.isTraceOn()) JDTrace.logInformation(this, "updateNClob" );
         updateNClob (findColumnX (columnName), x);
     }
-    endif */
+    ////endif */
     /**
      * Updates the designated column using the given <code>Reader</code>
      *
@@ -4153,14 +4153,14 @@ endif */
   //JDBC40DOC      * @param x the column value
   //JDBC40DOC      * @throws SQLException if a database access occurs 
   //JDBC40DOC      */
-/* ifdef JDBC40 
+/* ifdef JDBC40 */ 
 
     public void updateRowId (int column, java.sql.RowId x) throws java.sql.SQLException
     {
         if (JDTrace.isTraceOn()) JDTrace.logInformation(this, "updateRowId");
         checkUpdatePreconditions (column);
     }
-endif */ 
+////endif */ 
   //JDBC40DOC     /**
   //JDBC40DOC      * Updates the designated column with a <code>RowId</code> value. 
   //JDBC40DOC      * 
@@ -4168,13 +4168,13 @@ endif */
   //JDBC40DOC      * @param x the column value
   //JDBC40DOC      * @throws SQLException if a database access occurs 
   //JDBC40DOC      */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
     public void updateRowId (String columnName, java.sql.RowId x) throws java.sql.SQLException
     {
         if (JDTrace.isTraceOn()) JDTrace.logInformation(this, "updateRowId");
         updateRowId (findColumnX (columnName), x);
     }
-endif */ 
+////endif */ 
   //JDBC40DOC     /**
   //JDBC40DOC      * Updates the designated column with a <code>java.sql.SQLXML</code> value.
   //JDBC40DOC      *
@@ -4182,14 +4182,14 @@ endif */
   //JDBC40DOC      * @param x    The value for the column to be updated
   //JDBC40DOC      * @throws SQLException if a database access error occurs
   //JDBC40DOC      */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
 
     public void updateSQLXML (int column, java.sql.SQLXML x) throws java.sql.SQLException
     {
         if (JDTrace.isTraceOn()) JDTrace.logInformation(this, "updateSQLXML");
         checkUpdatePreconditions (column);
     }
-endif */ 
+////endif */ 
   //JDBC40DOC     /**
   //JDBC40DOC      * Updates the designated column with a <code>java.sql.SQLXML</code> value.
   //JDBC40DOC      *
@@ -4197,14 +4197,14 @@ endif */
   //JDBC40DOC      * @param x    The value for the column to be updated
   //JDBC40DOC      * @throws SQLException if a database access error occurs
   //JDBC40DOC      */
-    /* ifdef JDBC40 
+    /* ifdef JDBC40 */ 
 
     public void updateSQLXML (String columnName, java.sql.SQLXML x) throws java.sql.SQLException
     {
         updateSQLXML (findColumnX (columnName), x);
         if (JDTrace.isTraceOn()) JDTrace.logInformation(this, "updateSQLXML");
     }
-endif */ 
+////endif */ 
     
 
      public Object getObject(int columnIndex, Class type) throws SQLException {
@@ -4297,14 +4297,14 @@ endif */
          return getRef(columnIndex);
        } else if (type == URL.class){
          return getURL(columnIndex);
- /* ifdef JDBC40 
+ /* ifdef JDBC40 */ 
        } else if (type == NClob.class){
          return getNClob(columnIndex);
        } else if (type == RowId.class){
          return getRowId(columnIndex);
        } else if (type == SQLXML.class){
          return getSQLXML(columnIndex);
- endif */
+ ////endif */
        } else if (type == Object.class){
          return getObject(columnIndex);
        }

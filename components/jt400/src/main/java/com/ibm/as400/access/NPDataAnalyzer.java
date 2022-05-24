@@ -519,7 +519,7 @@ public class NPDataAnalyzer extends Object
                          fRC = true;
                       } else {
                          fDone = true;
-                      } /* endif */
+                      } /* ////endif */
                       break;
 
 
