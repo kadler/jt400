@@ -4,7 +4,7 @@ import com.ibm.as400.access.*;
 import com.kingland.as400.access.*;
 
 /**
- * Copyright © 2001, International Business Machines Corporation and others. All Rights Reserved.
+ * Copyright Å  2001, International Business Machines Corporation and others. All Rights Reserved.
  **
  * <p>
  * Abstract superclass for validation list utilities & examples.
@@ -13,7 +13,7 @@ import com.kingland.as400.access.*;
  */
 abstract class ValidationListUtil {
 	static final String COPYRIGHT =
-		"Copyright © 2001, International Business Machines Corporation and others. All Rights Reserved.";
+		"Copyright Å  2001, International Business Machines Corporation and others. All Rights Reserved.";
 
 	protected int ccsid_ = 37;
 	protected ValidationList vldl_ = null;

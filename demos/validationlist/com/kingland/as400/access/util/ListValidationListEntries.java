@@ -4,7 +4,7 @@ import com.ibm.as400.access.*;
 import com.kingland.as400.access.*;
 
 /**
- * Copyright © 2001, International Business Machines Corporation and others. All Rights Reserved.
+ * Copyright Å  2001, International Business Machines Corporation and others. All Rights Reserved.
  **
  * <p>
  * Example program to list the entries in an AS/400 validation list.
@@ -17,7 +17,7 @@ import com.kingland.as400.access.*;
  */
 public class ListValidationListEntries extends ValidationListUtil {
 	static final String COPYRIGHT =
-		"Copyright © 2001, International Business Machines Corporation and others. All Rights Reserved.";
+		"Copyright Å  2001, International Business Machines Corporation and others. All Rights Reserved.";
 /**
  * Default constructor.
  */
